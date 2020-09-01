@@ -1,7 +1,6 @@
 import React from "react";
 
 const End = ({ initQuestions, wrong, right, audioUrl }) => {
-  console.log(audioUrl)
   return (
     <div className="app">
       <p style={{ fontSize: "32px" }}>Спасибо за уделенное время!</p>
@@ -25,9 +24,9 @@ const End = ({ initQuestions, wrong, right, audioUrl }) => {
           </li>
         ))}
       </ol>
-      <button className="download" href={audioUrl} download="duolog-mic.mp3">
+      {audioUrl && (<button className="download" href={audioUrl} download="duolog-mic.mp3">
         Скачать запись
-      </button>
+      </button>)}
       <button
         style={{ marginBottom: "80px" }}
         onClick={() => window.location.reload()}

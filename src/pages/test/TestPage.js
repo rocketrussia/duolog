@@ -56,7 +56,6 @@ const TestPage = ({ initQuestions }) => {
         initQuestions={initQuestions}
         wrong={wrong}
         right={right}
-        audioUrl={'blob-link'}
       />
     );
   }
