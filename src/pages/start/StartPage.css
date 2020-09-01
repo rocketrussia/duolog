@@ -1,166 +1,205 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 
 body {
-    margin: 40px 80px;
-    padding: 0;
-    font-family: 'Raleway', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 40px 80px;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 button {
-    min-width: 422px;
-    padding: 10px 20px;
-    background: transparent;
-    border: 1px solid #777;
-    border-radius: 4px;
+  min-width: 422px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #777;
+  border-radius: 4px;
 }
 
 button:hover {
-    background: mediumseagreen;
-    color: white;
-    border: 1px solid mediumseagreen;
+  background: mediumseagreen;
+  color: white;
+  border: 1px solid mediumseagreen;
 }
 
-button:disabled{
-    border: 1px solid #999999;
-    background-color: #cccccc;
-    color: #666666;
+button:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
-
 
 select {
-    width: 422px;
-    overflow: hidden;
-    border-radius: 3px;
+  width: 422px;
+  overflow: hidden;
+  border-radius: 3px;
 }
 
 select:hover {
-    -webkit-box-shadow: 0px 0px 20px 0px rgba(60,179,113,1);
-    -moz-box-shadow: 0px 0px 20px 0px rgba(60,179,113,1);
-    box-shadow: 0px 0px 20px 0px rgb(60, 179, 113);
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(60, 179, 113, 1);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(60, 179, 113, 1);
+  box-shadow: 0px 0px 20px 0px rgb(60, 179, 113);
 }
 
 select:focus {
-    outline: none !important;
-    border: 1px solid mediumseagreen;
-    box-shadow: 0 0 10px mediumseagreen;
+  outline: none !important;
+  border: 1px solid mediumseagreen;
+  box-shadow: 0 0 10px mediumseagreen;
 }
 
 option {
-    padding: 10px;
-    font-size: 14px;
+  padding: 10px;
+  font-size: 14px;
 }
 
 select:focus option:checked {
-    background: linear-gradient(0deg, mediumseagreen 0%, mediumseagreen 100%);
+  background: linear-gradient(0deg, mediumseagreen 0%, mediumseagreen 100%);
 }
 
 textarea {
-    min-width: 400px;
-    cursor: pointer;
-    border-radius: 3px;
+  min-width: 400px;
+  cursor: pointer;
+  border-radius: 3px;
 
-    padding: 10px;
+  padding: 10px;
 }
 
 textarea:focus {
-    outline: none !important;
-    border: 1px solid mediumseagreen;
-    box-shadow: 0 0 10px mediumseagreen;
+  outline: none !important;
+  border: 1px solid mediumseagreen;
+  box-shadow: 0 0 10px mediumseagreen;
 }
 
 textarea:hover {
-    -webkit-box-shadow: 0px 0px 20px 0px rgba(60,179,113,1);
-    -moz-box-shadow: 0px 0px 20px 0px rgba(60,179,113,1);
-    box-shadow: 0px 0px 20px 0px rgba(60,179,113,1);
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(60, 179, 113, 1);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(60, 179, 113, 1);
+  box-shadow: 0px 0px 20px 0px rgba(60, 179, 113, 1);
 }
 
 .about {
-    font-size: 13px;
-    margin-bottom: 70px;
+  font-size: 13px;
+  margin-bottom: 70px;
 }
 
 /*Animations*/
 .fade-in {
-    animation: fadeIn ease 1s;
-    -webkit-animation: fadeIn ease 1s;
-    -moz-animation: fadeIn ease 1s;
-    -o-animation: fadeIn ease 1s;
-    -ms-animation: fadeIn ease 1s;
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
 }
 @keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-moz-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-o-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-ms-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .fade-out {
-    animation: fadeOut ease 1s;
-    -webkit-animation: fadeOut ease 1s;
-    -moz-animation: fadeOut ease 1s;
-    -o-animation: fadeOut ease 1s;
-    -ms-animation: fadeOut ease 1s;
+  animation: fadeOut ease 1s;
+  -webkit-animation: fadeOut ease 1s;
+  -moz-animation: fadeOut ease 1s;
+  -o-animation: fadeOut ease 1s;
+  -ms-animation: fadeOut ease 1s;
 }
 @keyframes fadeOut {
-    0% {opacity:1;}
-    100% {opacity:0;}
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @-moz-keyframes fadeOut {
-    0% {opacity:1;}
-    100% {opacity:0;}
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @-webkit-keyframes fadeOut {
-    0% {opacity:1;}
-    100% {opacity:0;}
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @-o-keyframes fadeOut {
-    0% {opacity:1;}
-    100% {opacity:0;}
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @-ms-keyframes fadeOut {
-    0% {opacity: 1;}
-    100% {opacity: 0;}
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 /* Scrollbar styles */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 10px;
+  background: transparent;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: #ccc;
+  border-radius: 10px;
+  background: #ccc;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #999;
+  background: #999;
 }
