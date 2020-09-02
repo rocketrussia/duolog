@@ -65,6 +65,7 @@ button {
 button:hover {
   cursor: pointer;
 }
+
 .download {
   margin-bottom: 20px;
 }

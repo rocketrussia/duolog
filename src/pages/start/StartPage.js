@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./StartPage.css";
 import TestPage from "../test/TestPage";
 
@@ -69,11 +69,25 @@ const tests = {
   UserTest: [],
 };
 
-const StartPage = () => {
+const StartPage = ({ recorder }) => {
   const [select, setSelect] = useState(null);
   const [testOn, setTestOn] = useState(false);
   const [buttonOff, setButtonOff] = useState(true);
   const [userTest, setUserTest] = useState("");
+
+  const recordOn = useRef(false);
+
+  if (testOn && !recordOn.current) {
+    recorder.start();
+    recordOn.current = true;
+  }
+
+  const stopRecord = () => {
+    if (recordOn.current) {
+      recorder.stop();
+      recordOn.current = false;
+    }
+  };
 
   const displayTest = () => {
     setTestOn(true);
@@ -124,47 +138,51 @@ const StartPage = () => {
           <p className="about">
             Приложение помогает подготовиться к интервью или экзамену
           </p>
-          <label>Выбирете готовый тест или создайте свой</label>
-          <p></p>
-          <select size="4">
-            <option onClick={() => handleSelect("JavaScript")}>
-              JavaScript
-            </option>
-            <option onClick={() => handleSelect("React")}>React</option>
-            <option onClick={() => handleSelect("Algorithms")}>
-              Algorithms
-            </option>
-            <option onClick={() => handleSelect("UserTest")}>
-              Создать свой тест
-            </option>
-          </select>
-          <p></p>
-          {select === "UserTest" ? (
-            <textarea
-              id="questions"
-              name="questions"
-              rows="20"
-              wrap="off"
-              placeholder="Напишите вопросы для прохождения интервью
+          <form>
+            <label>Выберите готовый тест или создайте свой</label>
+            <p></p>
+            <select size="4">
+              <option onClick={() => handleSelect("JavaScript")}>
+                JavaScript
+              </option>
+              <option onClick={() => handleSelect("React")}>React</option>
+              <option onClick={() => handleSelect("Algorithms")}>
+                Algorithms
+              </option>
+              <option onClick={() => handleSelect("UserTest")}>
+                Создать свой тест
+              </option>
+            </select>
+            <p></p>
+            {select === "UserTest" ? (
+              <textarea
+                id="questions"
+                name="questions"
+                rows="20"
+                wrap="off"
+                placeholder="Напишите вопросы для прохождения интервью
 Каждый вопрос с новой строки"
-              className="fade-in"
-              value={userTest}
-              onChange={handleTextarea}
-            ></textarea>
-          ) : null}
-          <p>
-            <button
-              type="submit"
-              title={buttonTitle()}
-              disabled={buttonOff}
-              onClick={() => displayTest()}
-            >
-              Начать интервью
-            </button>
-          </p>
+                className="fade-in"
+                value={userTest}
+                onChange={handleTextarea}
+              ></textarea>
+            ) : null}
+            <p>
+              <button
+                type="submit"
+                title={buttonTitle()}
+                disabled={buttonOff}
+                onClick={() => displayTest()}
+              >
+                Начать интервью
+              </button>
+            </p>
+          </form>
         </div>
       )}
-      {testOn && <TestPage initQuestions={tests[select]} />}
+      {testOn && (
+        <TestPage initQuestions={tests[select]} stopRecord={stopRecord} />
+      )}
     </>
   );
 };

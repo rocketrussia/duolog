@@ -24,9 +24,11 @@ const End = ({ initQuestions, wrong, right, audioUrl }) => {
           </li>
         ))}
       </ol>
-      {audioUrl && (<button className="download" href={audioUrl} download="duolog-mic.mp3">
-        Скачать запись
-      </button>)}
+      {audioUrl && (
+        <button className="download" href={audioUrl} download="duolog-mic.wav">
+          Скачать запись
+        </button>
+      )}
       <button
         style={{ marginBottom: "80px" }}
         onClick={() => window.location.reload()}

@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./TestPage.css";
 import End from "../../components/End";
 import Timer from "../../components/Timer";
 
-const TestPage = ({ initQuestions }) => {
+const TestPage = ({ initQuestions, stopRecord }) => {
   const [questions, setQuestions] = useState(initQuestions);
   const [timerReset, setTimerReset] = useState(false);
   const [takenAnswer, setTakenAnswer] = useState(false);
@@ -17,10 +17,10 @@ const TestPage = ({ initQuestions }) => {
     randNum.current = Math.floor(questions.length * Math.random());
     prevLength.current = questions.length;
   }
-  const getNewQuestions = useCallback(
-    () => questions.filter((_, index) => index !== randNum.current),
-    [questions]
-  );
+
+  function getNewQuestions() {
+    return questions.filter((_, index) => index !== randNum.current);
+  }
 
   function updateTimer(value) {
     setTimerReset(value);
@@ -48,23 +48,18 @@ const TestPage = ({ initQuestions }) => {
       setQuestions(getNewQuestions());
       setTimerReset(false);
     }
-  }, [timerReset, wrong, questions, getNewQuestions]);
+  });
 
   if (questions.length === 0) {
-    return (
-      <End
-        initQuestions={initQuestions}
-        wrong={wrong}
-        right={right}
-      />
-    );
+    stopRecord();
+    return <End initQuestions={initQuestions} wrong={wrong} right={right} />;
   }
 
   return (
     <div className="app">
       <div className="center">
         <Timer
-          initialTime={90}
+          initialTime={3}
           updateTimer={updateTimer}
           timerReset={timerReset}
           updateTakenAnswer={updateTakenAnswer}
