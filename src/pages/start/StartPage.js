@@ -116,7 +116,6 @@ const StartPage = ({ recorder }) => {
       setButtonOff(true);
     }
   }, [select, userTest]);
-
   return (
     <>
       {!testOn && (
@@ -142,16 +141,11 @@ const StartPage = ({ recorder }) => {
             <label>Выберите готовый тест или создайте свой</label>
             <p></p>
             <select size="4">
-              <option onClick={() => handleSelect("JavaScript")}>
-                JavaScript
-              </option>
-              <option onClick={() => handleSelect("React")}>React</option>
-              <option onClick={() => handleSelect("Algorithms")}>
-                Algorithms
-              </option>
-              <option onClick={() => handleSelect("UserTest")}>
-                Создать свой тест
-              </option>
+              {Object.keys(tests).map((key, index) => (
+                <option onClick={() => handleSelect(key)} key={index}>
+                  {key === "UserTest" ? "Создать свой тест" : key}
+                </option>
+              ))}
             </select>
             <p></p>
             {select === "UserTest" ? (
