@@ -1,33 +1,33 @@
 import React, { useEffect, useState, useRef } from "react";
-import "./StartPage.css";
 import TestPage from "../test/TestPage";
 import Switch from "../../components/Switch/Switch";
-import Recorder from "../../components/Recorder";
+import { downloadFile } from "../../utils/downloadFile";
+import "./StartPage.css";
 
 const id1 = [
   "В чем разница между ключевыми словами «var», «let» и «const»?",
   "Что такое поднятие (Hoisting)?",
   "Что такое область видимости (Scope)?",
-  "Что такое замыкание (Closures)?",
-  "Какое значение имеет this?",
-  "Что такое классы (Classes)?",
-  "Для чего используется ключевое слово «new»?",
-  "Что такое прототип объекта?",
-  "Что такое стрелочные функции (Arrow Functions)?",
-  "Что такое функциональное программирование и какие особенности JS позволяют говорить о нем как о функциональном языке программирования?",
-  "Что такое функции высшего порядка (Higher Order Functions)?",
-  "Почему функции в JS называют объектами первого класса (First-class Objects)?",
-  "Что такое ECMAScript?",
-  "Что нового привнес в JS стандарт ES6 или ECMAScript2015?",
-  "Что нового привнесли в JS последующие стандарты ES7-ES10?",
-  "Что такое распространение события (Event Propagation)?",
-  "Что такое всплытие события (Event Bubbling)?",
-  "Что такое погружение события (Event Capturing)?",
-  "Что такое цель события или целевой элемент (event.target)?",
-  "Какие приемы работы с асинхронным кодом в JS Вы знаете?",
-  "Что такое функция обратного вызова (Callback Function)?",
-  "Что такое промисы (Promises)?",
-  "Что такое async/await?",
+  // "Что такое замыкание (Closures)?",
+  // "Какое значение имеет this?",
+  // "Что такое классы (Classes)?",
+  // "Для чего используется ключевое слово «new»?",
+  // "Что такое прототип объекта?",
+  // "Что такое стрелочные функции (Arrow Functions)?",
+  // "Что такое функциональное программирование и какие особенности JS позволяют говорить о нем как о функциональном языке программирования?",
+  // "Что такое функции высшего порядка (Higher Order Functions)?",
+  // "Почему функции в JS называют объектами первого класса (First-class Objects)?",
+  // "Что такое ECMAScript?",
+  // "Что нового привнес в JS стандарт ES6 или ECMAScript2015?",
+  // "Что нового привнесли в JS последующие стандарты ES7-ES10?",
+  // "Что такое распространение события (Event Propagation)?",
+  // "Что такое всплытие события (Event Bubbling)?",
+  // "Что такое погружение события (Event Capturing)?",
+  // "Что такое цель события или целевой элемент (event.target)?",
+  // "Какие приемы работы с асинхронным кодом в JS Вы знаете?",
+  // "Что такое функция обратного вызова (Callback Function)?",
+  // "Что такое промисы (Promises)?",
+  // "Что такое async/await?",
 ];
 
 const id2 = [
@@ -71,28 +71,45 @@ const tests = {
   UserTest: [],
 };
 
-// TODO: add mediaRecorder.current to StartPage by Switch
-
-const StartPage = ({ recorder }) => {
+const StartPage = () => {
   const [select, setSelect] = useState(null);
   const [testOn, setTestOn] = useState(false);
   const [buttonOff, setButtonOff] = useState(true);
   const [userTest, setUserTest] = useState("");
   const [withMicro, setWithMicro] = useState(false)
 
-  const recordOn = useRef(false);
+  const recorder = useRef(null)
+  const voice = useRef([])
 
-  if (testOn && !recordOn.current) {
-    recorder.start();
-    recordOn.current = true;
+  useEffect(() => {
+    if (withMicro && !recorder.current) {
+      navigator.mediaDevices.getUserMedia({audio: true})
+        .then(stream => {
+          recorder.current = new MediaRecorder(stream)
+          recorder.current.addEventListener('dataavailable', (e) => {
+            voice.current.push(e.data)
+          })
+          recorder.current.addEventListener('stop', () => {
+            const voiceBlob = new Blob(voice.current, {
+              type: 'audio/mp3'
+            })
+            downloadFile(voiceBlob)
+          })
+        })
+    }
+  }, [withMicro])
+
+  const startRecorder = () => {
+    if (withMicro && recorder.current) {
+      recorder.current.start()
+    }
   }
 
-  const stopRecord = () => {
-    if (recordOn.current) {
-      recorder.stop();
-      recordOn.current = false;
+  const stopRecorder = () => {
+    if (withMicro && recorder.current) {
+      recorder.current.stop()
     }
-  };
+  }
 
   const displayTest = () => {
     setTestOn(true);
@@ -185,7 +202,10 @@ const StartPage = ({ recorder }) => {
         </div>
       )}
       {testOn && (
-        <TestPage initQuestions={tests[select]} stopRecord={stopRecord} />
+        <TestPage
+          initQuestions={tests[select]}
+          startRecorder={startRecorder}
+          stopRecorder={stopRecorder} />
       )}
     </>
   );

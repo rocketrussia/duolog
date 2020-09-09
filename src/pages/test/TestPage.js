@@ -3,12 +3,14 @@ import "./TestPage.css";
 import End from "../../components/End";
 import Timer from "../../components/Timer";
 
-const TestPage = ({ initQuestions, stopRecord }) => {
+const TestPage = ({ initQuestions, startRecorder, stopRecorder }) => {
   const [questions, setQuestions] = useState(initQuestions);
   const [timerReset, setTimerReset] = useState(false);
   const [takenAnswer, setTakenAnswer] = useState(false);
   const [wrong, setWrong] = useState([]);
   const [right, setRight] = useState([]);
+
+  const stopStatus = useRef(false)
 
   const randNum = useRef(Math.floor(questions.length * Math.random()));
   const prevLength = useRef(questions.length);
@@ -50,8 +52,16 @@ const TestPage = ({ initQuestions, stopRecord }) => {
     }
   });
 
+  useEffect(() => {
+    startRecorder()
+    stopStatus.current = false
+  }, [])
+
   if (questions.length === 0) {
-    stopRecord();
+    if (!stopStatus.current) {
+      stopRecorder()
+      stopStatus.current = true
+    }
     return <End initQuestions={initQuestions} wrong={wrong} right={right} />;
   }
 
