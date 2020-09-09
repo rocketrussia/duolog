@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./StartPage.css";
 import TestPage from "../test/TestPage";
+import Switch from "../../components/Switch/Switch";
+import Recorder from "../../components/Recorder";
 
 const id1 = [
   "В чем разница между ключевыми словами «var», «let» и «const»?",
@@ -69,11 +71,14 @@ const tests = {
   UserTest: [],
 };
 
+// TODO: add mediaRecorder.current to StartPage by Switch
+
 const StartPage = ({ recorder }) => {
   const [select, setSelect] = useState(null);
   const [testOn, setTestOn] = useState(false);
   const [buttonOff, setButtonOff] = useState(true);
   const [userTest, setUserTest] = useState("");
+  const [withMicro, setWithMicro] = useState(false)
 
   const recordOn = useRef(false);
 
@@ -105,6 +110,10 @@ const StartPage = ({ recorder }) => {
     if (select === null) return "Выбирете тест";
     return buttonOff ? "Напишите хотя бы 3 вопроса для своего теста" : null;
   };
+
+  const handleSwitch = () => {
+    withMicro ? setWithMicro(false) : setWithMicro(true)
+  }
 
   useEffect(() => {
     if (select !== null) {
@@ -138,7 +147,7 @@ const StartPage = ({ recorder }) => {
             Приложение помогает подготовиться к интервью или экзамену
           </p>
           <form>
-            <label>Выберите готовый тест или создайте свой</label>
+            <label>Выбери готовый тест или создай свой</label>
             <p></p>
             <select size="4">
               {Object.keys(tests).map((key, index) => (
@@ -161,6 +170,7 @@ const StartPage = ({ recorder }) => {
                 onChange={handleTextarea}
               ></textarea>
             ) : null}
+            <Switch handleSwitch={handleSwitch} />
             <p>
               <button
                 type="submit"

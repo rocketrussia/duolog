@@ -59,7 +59,7 @@ const TestPage = ({ initQuestions, stopRecord }) => {
     <div className="app">
       <div className="center">
         <Timer
-          initialTime={3}
+          initialTime={90}
           updateTimer={updateTimer}
           timerReset={timerReset}
           updateTakenAnswer={updateTakenAnswer}

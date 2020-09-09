@@ -1,6 +1,6 @@
 import React from "react";
 
-const End = ({ initQuestions, wrong, right, audioUrl }) => {
+const End = ({ initQuestions, wrong, right, voiceUrl }) => {
   return (
     <div className="app">
       <p style={{ fontSize: "32px" }}>Спасибо за уделенное время!</p>
@@ -24,8 +24,8 @@ const End = ({ initQuestions, wrong, right, audioUrl }) => {
           </li>
         ))}
       </ol>
-      {audioUrl && (
-        <button className="download" href={audioUrl} download="duolog-mic.wav">
+      {voiceUrl && (
+        <button className="download" href={voiceUrl} download="duolog-mic.wav">
           Скачать запись
         </button>
       )}
