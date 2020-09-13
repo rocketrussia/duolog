@@ -4,9 +4,10 @@ import Header from './Header';
 import Select from './Select';
 import Switch from "../../components/Switch/Switch";
 
-import tests from './tests';
-import { downloadFile } from "../../utils/downloadFile";
+import tests from '../../services/tests';
+import { downloadFile } from "../../utils/utils";
 import "./StartPage.css";
+import Alert from '../../components/Alert/Alert';
 
 const StartPage = () => {
   const [select, setSelect] = useState(null);
@@ -14,6 +15,7 @@ const StartPage = () => {
   const [buttonOff, setButtonOff] = useState(true);
   const [userTest, setUserTest] = useState("");
   const [withMicro, setWithMicro] = useState(false)
+  const [error, setError] = useState(false)
 
   const recorder = useRef(null)
   const voice = useRef([])
@@ -32,6 +34,9 @@ const StartPage = () => {
             })
             downloadFile(voiceBlob)
           })
+        })
+        .catch(e => {
+          setError(true)
         })
     }
   }, [withMicro])
@@ -69,6 +74,10 @@ const StartPage = () => {
     withMicro ? setWithMicro(false) : setWithMicro(true)
   }
 
+  const handleError = () => {
+    error ? setError(false) : setError(true)
+  }
+
   useEffect(() => {
     if (select !== null) {
       setButtonOff(false);
@@ -91,6 +100,10 @@ const StartPage = () => {
               handleSelect={handleSelect}
               handleTextarea={handleTextarea}
             />
+            {error && (<Alert
+              text={'Микрофон не подключен'}
+              handleError={handleError}
+            />)}
             <Switch
               handleSwitch={handleSwitch}
             />
