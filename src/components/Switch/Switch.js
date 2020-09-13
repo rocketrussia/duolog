@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Switch.css";
+import styles from "./switch.module.css";
 import {cn} from '../../utils/utils'
 
 const Switch = ({handleSwitch}) => {
