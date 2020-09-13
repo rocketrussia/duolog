@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import './Alert.css'
+import {cn} from '../../utils/utils';
+import styles from './alert.module.css'
+import anim from '../../css/animations.module.css'
 
 const Alert = ({text, handleError}) => {
   const [fadeIn, setFadeIn] = useState(true)
@@ -19,9 +21,10 @@ const Alert = ({text, handleError}) => {
   }, [fadeOut])
 
   return (
-    <div className={
-      `notify ${fadeIn ? 'fade-in' : 'fade-out'}`
-    }>
+    <div className={fadeIn
+      ? cn(styles.notify, anim.fadeIn)
+      : cn(styles.notify, anim.fadeOut)}
+    >
     {text}
     </div>
   )

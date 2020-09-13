@@ -1,5 +1,6 @@
 import React from 'react';
 import tests from '../../services/tests';
+import anim from '../../css/animations.module.css'
 
 const Select = ({select, userTest, handleSelect, handleTextarea}) => {
   return (
@@ -25,7 +26,7 @@ const Select = ({select, userTest, handleSelect, handleTextarea}) => {
           wrap="off"
           placeholder="Напишите вопросы для прохождения интервью
     Каждый вопрос с новой строки"
-          className="fade-in"
+          className={anim.fadeIn}
           value={userTest}
           onChange={handleTextarea}
         ></textarea>
