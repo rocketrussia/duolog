@@ -1,7 +1,21 @@
 import React from 'react';
+import styles from './prolog.module.css'
 
+// TODO: Add new style
+// const Prolog = () => {
+//   return (
+//       <div>
+//         <div>Logo</div>
+//         <div>Description</div>
+//         <div>Icon 1</div>
+//         <div>Icon 2</div>
+//         <div>Icon 3</div>
+//         <div>Download</div>
+//       </div>
+//   )
+// }
 
-const Header = () => {
+const Prolog = () => {
   return (
     <>
       <h3>
@@ -25,4 +39,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Prolog

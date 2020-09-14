@@ -1,5 +1,6 @@
 import React from 'react';
 import tests from '../../services/tests';
+import styles from "../../pages/start/startpage.module.css";
 import anim from '../../css/animations.module.css'
 
 const Select = ({select, userTest, handleSelect, handleTextarea}) => {

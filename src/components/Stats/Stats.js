@@ -1,6 +1,6 @@
 import React from "react";
 
-const End = ({ initQuestions, wrong, right, voiceUrl }) => {
+const Stats = ({ initQuestions, wrong, right, voiceUrl }) => {
   return (
     <div className="app">
       <p style={{ fontSize: "32px" }}>Спасибо за уделенное время!</p>
@@ -39,4 +39,4 @@ const End = ({ initQuestions, wrong, right, voiceUrl }) => {
   );
 };
 
-export default End;
+export default Stats;

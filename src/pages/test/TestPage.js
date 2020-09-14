@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./TestPage.css";
-import End from "../../components/End";
-import Timer from "../../components/Timer";
+import styles from "./testpage.module.css";
+import Stats from "../../components/Stats/Stats";
+import Timer from "../../components/Timer/Timer";
 
 const TestPage = ({ initQuestions, startRecorder, stopRecorder }) => {
   const [questions, setQuestions] = useState(initQuestions);
@@ -62,7 +62,7 @@ const TestPage = ({ initQuestions, startRecorder, stopRecorder }) => {
       stopRecorder()
       stopStatus.current = true
     }
-    return <End initQuestions={initQuestions} wrong={wrong} right={right} />;
+    return <Stats initQuestions={initQuestions} wrong={wrong} right={right} />;
   }
 
   return (

@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.row {
+  width: 760px;
+  height: 720px;
+  padding: 60px 85px;
+}
+
+.left {
+  border: transparent 1px solid;
+  border-radius: 32px;
+}
+
+.right {
+  background-color: #ffffff50;
+  border-radius: 32px;
+}
