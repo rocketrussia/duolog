@@ -28,12 +28,12 @@ body {
   flex-direction: column;
 }
 
-img {
+.column > img {
   margin: 40px 0 0 0;
   align-self: self-end;
 }
 
-img:hover {
+.column > img:hover {
   animation: pop 0.5s ease-out;
 }
 
@@ -54,13 +54,13 @@ span {
 
 .download > img {
   position: relative;
-  top: -28%;
+  top: 27%;
   left: 25px;
 }
 
 .download > span {
   position: relative;
-  top: -44%;
+  top: 13%;
   left: 40px;
 }
 
