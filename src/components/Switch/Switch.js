@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./switch.module.css";
-import {cn} from '../../utils/utils'
+import { cn } from "../../utils/utils";
 
-const Switch = ({handleSwitch}) => {
+const Switch = ({ handleSwitch }) => {
   return (
     <div className={styles.margin}>
       <label className={styles.switch}>

@@ -10,7 +10,7 @@ const TestPage = ({ initQuestions, startRecorder, stopRecorder }) => {
   const [wrong, setWrong] = useState([]);
   const [right, setRight] = useState([]);
 
-  const stopStatus = useRef(false)
+  const stopStatus = useRef(false);
 
   const randNum = useRef(Math.floor(questions.length * Math.random()));
   const prevLength = useRef(questions.length);
@@ -53,14 +53,14 @@ const TestPage = ({ initQuestions, startRecorder, stopRecorder }) => {
   });
 
   useEffect(() => {
-    startRecorder()
-    stopStatus.current = false
-  }, [])
+    startRecorder();
+    stopStatus.current = false;
+  }, []);
 
   if (questions.length === 0) {
     if (!stopStatus.current) {
-      stopRecorder()
-      stopStatus.current = true
+      stopRecorder();
+      stopStatus.current = true;
     }
     return <Stats initQuestions={initQuestions} wrong={wrong} right={right} />;
   }

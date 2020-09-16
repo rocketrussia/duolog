@@ -1,17 +1,14 @@
-import React from 'react';
-import tests from '../../services/tests';
+import React from "react";
+import tests from "../../services/tests";
 import styles from "../../pages/start/startpage.module.css";
-import anim from '../../css/animations.module.css'
+import anim from "../../css/animations.module.css";
 
-const Select = ({select, userTest, handleSelect, handleTextarea}) => {
+const Select = ({ select, userTest, handleSelect, handleTextarea }) => {
   return (
     <>
       <label>Выбери готовый тест или создай свой</label>
       <p></p>
-      <select
-        className="form-control"
-        size="4"
-      >
+      <select className="form-control" size="4">
         {Object.keys(tests).map((key, index) => (
           <option onClick={() => handleSelect(key)} key={index}>
             {key === "UserTest" ? "Создать свой тест" : key}
@@ -33,7 +30,7 @@ const Select = ({select, userTest, handleSelect, handleTextarea}) => {
         ></textarea>
       ) : null}
     </>
-  )
-}
+  );
+};
 
-export default Select
+export default Select;

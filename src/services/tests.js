@@ -65,4 +65,4 @@ const tests = {
   UserTest: [],
 };
 
-export default tests
+export default tests;

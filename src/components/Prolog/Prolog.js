@@ -1,42 +1,50 @@
-import React from 'react';
-import styles from './prolog.module.css'
+import React from "react";
+import styles from "./prolog.module.css";
 
-// TODO: Add new style
-// const Prolog = () => {
-//   return (
-//       <div>
-//         <div>Logo</div>
-//         <div>Description</div>
-//         <div>Icon 1</div>
-//         <div>Icon 2</div>
-//         <div>Icon 3</div>
-//         <div>Download</div>
-//       </div>
-//   )
-// }
+import logo from "../../assets/png/logo.png";
+import speakingTrain from "../../assets/png/speaking-train.png";
+import microphone from "../../assets/png/microphone.png";
+import createTest from "../../assets/png/create-test.png";
+import download from "../../assets/png/download.png";
 
 const Prolog = () => {
   return (
     <>
-      <h3>
-        Duolog
-        <span
-          style={{
-            fontSize: "12px",
-            fontWeight: "normal",
-            color: "grey",
-            verticalAlign: "top",
-          }}
-        >
-                {" "}
-          Alpha
-              </span>
-      </h3>
-      <p className="about">
-        Приложение помогает подготовиться к интервью или экзамену
+      <img src={logo} alt="Logo" />
+      <span className={styles.alpha}>Alpha version 0.2</span>
+      <p className={styles.description}>
+        Приложение помогает<br></br>
+        подготовиться к интервью или экзамену
       </p>
+      <div className={styles.row}>
+        <div className={styles.column}>
+          <img src={speakingTrain} alt="Тренируй навык общения" />
+          <span>
+            Тренируй навыки<br></br> ответа на вопросы<br></br> вслух
+            самостоятельно
+          </span>
+        </div>
+        <div className={styles.column}>
+          <img src={microphone} alt="Анализируй свои ответы" />
+          <span className={styles.column}>
+            Записывай диалог<br></br>
+            для последующего<br></br> анализа ответов
+          </span>
+        </div>
+        <div className={styles.column}>
+          <img src={createTest} alt="Создавай свои тесты" />
+          <span className={styles.column}>
+            Создавай свои<br></br>
+            собственные тесты<br></br> для тренировок
+          </span>
+        </div>
+      </div>
+      <div className={styles.download}>
+        <img src={download} alt="Упражняйся на любой платформе" />
+        <span>Скоро будет доступно для скачки на PC, Linux, Android, iOS</span>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Prolog
+export default Prolog;

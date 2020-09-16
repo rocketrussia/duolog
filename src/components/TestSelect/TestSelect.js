@@ -1,12 +1,12 @@
-import React, {useEffect, useRef, useState} from 'react';
-import styles from './select-test.module.css'
-import {downloadFile} from '../../utils/utils';
-import tests from '../../services/tests';
+import React, { useEffect, useRef, useState } from "react";
+import styles from "./select-test.module.css";
+import { downloadFile } from "../../utils/utils";
+import tests from "../../services/tests";
 
-import Select from '../Select/Select';
-import Alert from '../Alert/Alert';
-import Switch from '../Switch/Switch';
-import TestPage from '../../pages/test/TestPage';
+import Select from "../Select/Select";
+import Alert from "../Alert/Alert";
+import Switch from "../Switch/Switch";
+import TestPage from "../../pages/test/TestPage";
 
 // TODO: Add new style
 // const TestSelect = () => {
@@ -25,44 +25,45 @@ const TestSelect = () => {
   const [testOn, setTestOn] = useState(false);
   const [buttonOff, setButtonOff] = useState(true);
   const [userTest, setUserTest] = useState("");
-  const [withMicro, setWithMicro] = useState(false)
-  const [error, setError] = useState(false)
+  const [withMicro, setWithMicro] = useState(false);
+  const [error, setError] = useState(false);
 
-  const recorder = useRef(null)
-  const voice = useRef([])
+  const recorder = useRef(null);
+  const voice = useRef([]);
 
   useEffect(() => {
     if (withMicro && !recorder.current) {
-      navigator.mediaDevices.getUserMedia({audio: true})
-        .then(stream => {
-          recorder.current = new MediaRecorder(stream)
-          recorder.current.addEventListener('dataavailable', (e) => {
-            voice.current.push(e.data)
-          })
-          recorder.current.addEventListener('stop', () => {
+      navigator.mediaDevices
+        .getUserMedia({ audio: true })
+        .then((stream) => {
+          recorder.current = new MediaRecorder(stream);
+          recorder.current.addEventListener("dataavailable", (e) => {
+            voice.current.push(e.data);
+          });
+          recorder.current.addEventListener("stop", () => {
             const voiceBlob = new Blob(voice.current, {
-              type: 'audio/mp3'
-            })
-            downloadFile(voiceBlob)
-          })
+              type: "audio/mp3",
+            });
+            downloadFile(voiceBlob);
+          });
         })
-        .catch(e => {
-          setError(true)
-        })
+        .catch((e) => {
+          setError(true);
+        });
     }
-  }, [withMicro])
+  }, [withMicro]);
 
   const startRecorder = () => {
     if (withMicro && recorder.current) {
-      recorder.current.start()
+      recorder.current.start();
     }
-  }
+  };
 
   const stopRecorder = () => {
     if (withMicro && recorder.current) {
-      recorder.current.stop()
+      recorder.current.stop();
     }
-  }
+  };
 
   const displayTest = () => {
     setTestOn(true);
@@ -82,12 +83,12 @@ const TestSelect = () => {
   };
 
   const handleSwitch = () => {
-    withMicro ? setWithMicro(false) : setWithMicro(true)
-  }
+    withMicro ? setWithMicro(false) : setWithMicro(true);
+  };
 
   const handleError = () => {
-    error ? setError(false) : setError(true)
-  }
+    error ? setError(false) : setError(true);
+  };
 
   useEffect(() => {
     if (select !== null) {
@@ -110,13 +111,10 @@ const TestSelect = () => {
               handleSelect={handleSelect}
               handleTextarea={handleTextarea}
             />
-            {error && (<Alert
-              text={'Микрофон не подключен'}
-              handleError={handleError}
-            />)}
-            <Switch
-              handleSwitch={handleSwitch}
-            />
+            {error && (
+              <Alert text={"Микрофон не подключен"} handleError={handleError} />
+            )}
+            <Switch handleSwitch={handleSwitch} />
             <p>
               <button
                 type="submit"
@@ -134,10 +132,11 @@ const TestSelect = () => {
         <TestPage
           initQuestions={tests[select]}
           startRecorder={startRecorder}
-          stopRecorder={stopRecorder} />
+          stopRecorder={stopRecorder}
+        />
       )}
     </>
   );
-}
+};
 
-export default TestSelect
+export default TestSelect;

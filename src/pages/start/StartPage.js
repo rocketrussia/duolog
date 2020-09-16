@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import styles from './startpage.module.css'
-import TestSelect from '../../components/TestSelect/TestSelect';
-import Prolog from '../../components/Prolog/Prolog';
-import {cn} from '../../utils/utils';
+import styles from "./startpage.module.css";
+import TestSelect from "../../components/TestSelect/TestSelect";
+import Prolog from "../../components/Prolog/Prolog";
+import { cn } from "../../utils/utils";
 
 const StartPage = () => {
   return (
@@ -15,7 +15,7 @@ const StartPage = () => {
         <TestSelect />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default StartPage
+export default StartPage;

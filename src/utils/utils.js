@@ -1,5 +1,5 @@
 export const cn = (...args) => {
-  return args.reduce((acc, item) => acc + ` ${item}`)
+  return args.reduce((acc, item) => acc + ` ${item}`);
 };
 
 export function downloadFile(file) {
