@@ -54,14 +54,18 @@ span {
 
 .download > img {
   position: relative;
-  top: 27%;
+  top: 23%;
   left: 25px;
 }
 
 .download > span {
   position: relative;
-  top: 13%;
+  top: 7%;
   left: 40px;
+}
+
+.platforms {
+  margin-left: 18px;
 }
 
 @keyframes pop {

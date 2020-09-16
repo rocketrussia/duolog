@@ -6,6 +6,7 @@ import speakingTrain from "../../assets/png/speaking-train.png";
 import microphone from "../../assets/png/microphone.png";
 import createTest from "../../assets/png/create-test.png";
 import download from "../../assets/png/download.png";
+import platforms from "../../assets/png/platforms.png"
 
 const Prolog = () => {
   return (
@@ -41,7 +42,8 @@ const Prolog = () => {
       </div>
       <div className={styles.download}>
         <img src={download} alt="Упражняйся на любой платформе" />
-        <span>Скоро будет доступно для скачки на PC, Linux, Android, iOS</span>
+        <span>Скоро будет доступно для скачки на </span>
+        <img src={platforms} className={styles.platforms} alt="Windows, Linux, iOS, Android" />
       </div>
     </>
   );
