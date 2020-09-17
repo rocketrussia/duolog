@@ -54,7 +54,7 @@ body {
   margin-bottom: 80px;
 }
 
-button {
+.button {
   padding: 30px 100px;
   font-size: 18px;
   background: transparent;
@@ -62,7 +62,7 @@ button {
   border-radius: 4px;
 }
 
-button:hover {
+.button:hover {
   cursor: pointer;
 }
 

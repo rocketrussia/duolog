@@ -1,29 +1,42 @@
-import React from "react";
+import React, {useState} from "react";
 import tests from "../../services/tests";
-import styles from "../../pages/start/startpage.module.css";
+
+import styles from './select.module.css'
 import anim from "../../css/animations.module.css";
 
+const placeholder = `Напишите вопросы для прохождения интервью
+Каждый вопрос с новой строки`
+
 const Select = ({ select, userTest, handleSelect, handleTextarea }) => {
+  const [selected, setSelected] = useState('0')
+
+  function handleSelected(key) {
+    handleSelect(key)
+    setSelected(key)
+  }
+
   return (
     <>
       <label>Выбери готовый тест или создай свой</label>
       <p></p>
-      <select className="form-control" size="4">
+      <ul>
         {Object.keys(tests).map((key, index) => (
-          <option onClick={() => handleSelect(key)} key={index}>
+          <li
+            className={selected === key ? styles.selected : ''}
+            onClick={() => handleSelected(key)}
+            key={index}>
             {key === "UserTest" ? "Создать свой тест" : key}
-          </option>
+          </li>
         ))}
-      </select>
+      </ul>
       <p></p>
       {select === "UserTest" ? (
         <textarea
           id="questions"
           name="questions"
-          rows="20"
+          rows="5"
           wrap="off"
-          placeholder="Напишите вопросы для прохождения интервью
-    Каждый вопрос с новой строки"
+          placeholder={placeholder}
           className={anim.fadeIn}
           value={userTest}
           onChange={handleTextarea}

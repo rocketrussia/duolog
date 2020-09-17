@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import styles from "./select-test.module.css";
+import styles from "./test-select.module.css";
 import { downloadFile } from "../../utils/utils";
 import tests from "../../services/tests";
 
@@ -7,18 +7,6 @@ import Select from "../Select/Select";
 import Alert from "../Alert/Alert";
 import Switch from "../Switch/Switch";
 import TestPage from "../../pages/test/TestPage";
-
-// TODO: Add new style
-// const TestSelect = () => {
-//   return (
-//     <div>
-//       <div>Select Test</div>
-//       <div>Switch Voice Acting</div>
-//       <div>Switch Record Mic</div>
-//       <div>Button Start</div>
-//     </div>
-//   )
-// }
 
 const TestSelect = () => {
   const [select, setSelect] = useState(null);
@@ -117,6 +105,7 @@ const TestSelect = () => {
             <Switch handleSwitch={handleSwitch} />
             <p>
               <button
+                className={styles.button}
                 type="submit"
                 title={buttonTitle()}
                 disabled={buttonOff}
