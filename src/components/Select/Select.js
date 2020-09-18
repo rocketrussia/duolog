@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import tests from "../../services/tests";
 
 import styles from "./select.module.css";
@@ -8,7 +8,9 @@ const placeholder = `Напишите вопросы для прохождени
 Каждый вопрос с новой строки`;
 
 const Select = ({ select, userTest, handleSelect, handleTextarea }) => {
-  const [selected, setSelected] = useState('');
+  const initKey = Object.keys(tests)[0]
+  const length = Object.keys(tests).length;
+  const [selected, setSelected] = useState(initKey);
 
   function handleSelected(key) {
     handleSelect(key);
@@ -16,14 +18,17 @@ const Select = ({ select, userTest, handleSelect, handleTextarea }) => {
   }
 
   function selectedStyle(key, index) {
-    const length = Object.keys(tests).length;
-
     if (selected === key) {
       if (index === 0) return styles.selectedFirst;
       if (index === length - 1) return styles.selectedLast;
       return styles.selected;
     }
   }
+
+  useEffect(() => {
+    handleSelect(initKey)
+    selectedStyle(initKey, 0)
+  }, [])
 
   return (
     <>

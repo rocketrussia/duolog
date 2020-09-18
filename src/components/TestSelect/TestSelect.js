@@ -91,31 +91,29 @@ const TestSelect = () => {
   return (
     <>
       {!testOn && (
-        <div>
-          <form>
-            <Select
-              select={select}
-              userTest={userTest}
-              handleSelect={handleSelect}
-              handleTextarea={handleTextarea}
-            />
-            {error && (
-              <Alert text={"Микрофон не подключен"} handleError={handleError} />
-            )}
-            <Switch handleSwitch={handleSwitch} />
-            <p>
-              <button
-                className={styles.button}
-                type="submit"
-                title={buttonTitle()}
-                disabled={buttonOff}
-                onClick={() => displayTest()}
-              >
-                Начать интервью
-              </button>
-            </p>
-          </form>
-        </div>
+        <>
+          <Select
+            select={select}
+            userTest={userTest}
+            handleSelect={handleSelect}
+            handleTextarea={handleTextarea}
+          />
+          {error && (
+            <Alert text={"Микрофон не подключен"} handleError={handleError} />
+          )}
+          <Switch handleSwitch={handleSwitch} />
+          <p>
+            <button
+              className={styles.button}
+              type="submit"
+              title={buttonTitle()}
+              disabled={buttonOff}
+              onClick={() => displayTest()}
+            >
+              Начать интервью
+            </button>
+          </p>
+        </>
       )}
       {testOn && (
         <Test
