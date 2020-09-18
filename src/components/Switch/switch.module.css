@@ -1,11 +1,9 @@
 .margin {
-  margin: 30px 0 -5px 0;
+  margin: -20px 0 0 0;
 }
 
 .description {
-  position: relative;
-  bottom: 3px;
-  margin-left: 10px;
+  margin-left: 60px;
   font-size: 20px;
   font-weight: 300;
 }
@@ -23,7 +21,7 @@
 /* The switch - the box around the slider */
 .switch {
   position: relative;
-  display: inline-block;
+  display: block;
   width: 48px;
   height: 28px;
 }
@@ -39,7 +37,7 @@
 .slider {
   position: absolute;
   cursor: pointer;
-  top: -27px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
