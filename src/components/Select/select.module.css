@@ -90,6 +90,11 @@ textarea:hover {
   box-shadow: var(--green-shadow);
 }
 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+}
+
 @media screen and (max-width: 1600px) {
   textarea {
     width: 95%;

@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import styles from "./test.module.css";
 import Stats from "../Stats/Stats";
 import Timer from "../Timer/Timer";
+
+import styles from "./test.module.css";
+import {cn} from '../../utils/utils';
 
 const Test = ({ initQuestions, startRecorder, stopRecorder }) => {
   const [questions, setQuestions] = useState(initQuestions);
@@ -66,22 +68,20 @@ const Test = ({ initQuestions, startRecorder, stopRecorder }) => {
   }
 
   return (
-    <div className="app">
-      <div className="center">
-        <Timer
-          initialTime={90}
-          updateTimer={updateTimer}
-          timerReset={timerReset}
-          updateTakenAnswer={updateTakenAnswer}
-          takenAnswer={takenAnswer}
-        />
-        <p className="question">{questions[randNum.current]}</p>
-      </div>
-      <span className="spanBottom">
-        <button className="marginRight red" onClick={handleWrong}>
+    <div className={styles.test}>
+      <Timer
+        initialTime={90}
+        updateTimer={updateTimer}
+        timerReset={timerReset}
+        updateTakenAnswer={updateTakenAnswer}
+        takenAnswer={takenAnswer}
+      />
+      <p className={styles.question}>{questions[randNum.current]}</p>
+      <span className={styles.buttonBlock}>
+        <button className={cn(styles.button, styles.marginRight, styles.red)} onClick={handleWrong}>
           Не знаю
         </button>
-        <button className="green" onClick={handleRight}>
+        <button className={cn(styles.button, styles.green)} onClick={handleRight}>
           Ответил
         </button>
       </span>

@@ -1,0 +1,12 @@
+.end {
+    margin-bottom: 80px;
+}
+
+.download {
+    margin-bottom: 20px;
+}
+
+.download:hover {
+    background-color: #00cec9;
+    border: 1px solid #00cec9;
+}
