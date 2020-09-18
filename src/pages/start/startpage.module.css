@@ -1,6 +1,8 @@
 .container {
   display: flex;
   flex-direction: row;
+
+  margin-top: 30px;
 }
 
 .row {
@@ -21,15 +23,30 @@
 @media screen and (max-width: 1600px) {
   .container {
     flex-direction: column;
+    margin-top: 0;
   }
 
   .right {
     margin-bottom: 60px;
   }
+
+  .right {
+    margin-top: 30px;
+  }
 }
 
 @media screen and (max-width: 960px) {
   .row {
+    width: 620px;
     padding: 30px 40px;
   }
 }
+
+@media screen and (max-width: 720px) {
+  .row {
+    width: auto;
+    padding: 30px 40px;
+  }
+}
+
+

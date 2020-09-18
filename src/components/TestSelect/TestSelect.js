@@ -6,7 +6,7 @@ import tests from "../../services/tests";
 import Select from "../Select/Select";
 import Alert from "../Alert/Alert";
 import Switch from "../Switch/Switch";
-import TestPage from "../../pages/test/TestPage";
+import Test from "../Test/Test";
 
 const TestSelect = () => {
   const [select, setSelect] = useState(null);
@@ -118,7 +118,7 @@ const TestSelect = () => {
         </div>
       )}
       {testOn && (
-        <TestPage
+        <Test
           initQuestions={tests[select]}
           startRecorder={startRecorder}
           stopRecorder={stopRecorder}

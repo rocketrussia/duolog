@@ -1,18 +1,28 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import tests from "../../services/tests";
 
-import styles from './select.module.css'
+import styles from "./select.module.css";
 import anim from "../../css/animations.module.css";
 
 const placeholder = `Напишите вопросы для прохождения интервью
-Каждый вопрос с новой строки`
+Каждый вопрос с новой строки`;
 
 const Select = ({ select, userTest, handleSelect, handleTextarea }) => {
-  const [selected, setSelected] = useState('0')
+  const [selected, setSelected] = useState('');
 
   function handleSelected(key) {
-    handleSelect(key)
-    setSelected(key)
+    handleSelect(key);
+    setSelected(key);
+  }
+
+  function selectedStyle(key, index) {
+    const length = Object.keys(tests).length;
+
+    if (selected === key) {
+      if (index === 0) return styles.selectedFirst;
+      if (index === length - 1) return styles.selectedLast;
+      return styles.selected;
+    }
   }
 
   return (
@@ -22,9 +32,10 @@ const Select = ({ select, userTest, handleSelect, handleTextarea }) => {
       <ul>
         {Object.keys(tests).map((key, index) => (
           <li
-            className={selected === key ? styles.selected : ''}
+            className={selectedStyle(key, index)}
             onClick={() => handleSelected(key)}
-            key={index}>
+            key={index}
+          >
             {key === "UserTest" ? "Создать свой тест" : key}
           </li>
         ))}

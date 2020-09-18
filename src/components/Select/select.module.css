@@ -1,77 +1,90 @@
 :root {
-    --green-shadow: 0px 0px 20px 0px rgba(60, 179, 113, 1);
+  --green-shadow: 0px 0px 20px 0px rgba(60, 179, 113, 1);
 }
 
 label {
-    font-size: 24px;
-    font-weight: 300;
+  font-size: 24px;
+  font-weight: 300;
 }
 
 ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 
-    background-color: white;
-    border-radius: 16px;
+  background-color: white;
+  border-radius: 16px;
 }
 
 ul:hover {
-    -webkit-box-shadow: var(--green-shadow);
-    -moz-box-shadow: var(--green-shadow);
-    box-shadow: var(--green-shadow);
+  -webkit-box-shadow: var(--green-shadow);
+  -moz-box-shadow: var(--green-shadow);
+  box-shadow: var(--green-shadow);
 }
 
 ul > li {
-    cursor: pointer;
-    padding: 10px 0 10px 15px;
+  cursor: pointer;
+  padding: 10px 0 10px 15px;
 }
 
 ul > li:hover {
-    background-color: mediumseagreen;
-    color: white;
+  background-color: mediumseagreen;
+  color: white;
 }
 
-ul > li:first-child, li:first-child.selected {
-    padding: 15px 0 10px 15px;
+ul > li:first-child,
+li:first-child.selected {
+  padding: 15px 0 10px 15px;
 }
 
 ul > li:first-child:hover {
-    border-radius: 16px 16px 0 0;
+  border-radius: 16px 16px 0 0;
 }
 
 ul > li:last-child {
-    padding: 10px 0 15px 15px;
+  padding: 10px 0 15px 15px;
 }
 
 ul > li:last-child:hover {
-    border-radius: 0 0 16px 16px;
+  border-radius: 0 0 16px 16px;
 }
 
 .selected {
-    background-color: mediumseagreen;
-    color: white;
+  background-color: mediumseagreen;
+  color: white;
+}
+
+.selectedFirst {
+  background-color: mediumseagreen;
+  color: white;
+  border-radius: 16px 16px 0 0;
+}
+
+.selectedLast {
+  background-color: mediumseagreen;
+  color: white;
+  border-radius: 0 0 16px 16px;
 }
 
 textarea {
-    margin-top: 10px;
+  margin-top: 10px;
 
-    width: 96%;
-    cursor: pointer;
-    border-radius: 16px;
-    padding: 15px;
-    font-size: 18px;
-    border: 0px solid transparent;
-    resize: vertical;
+  width: 96%;
+  cursor: pointer;
+  border-radius: 16px;
+  padding: 15px;
+  font-size: 18px;
+  border: 0px solid transparent;
+  resize: vertical;
 }
 
 textarea:focus {
-    outline: none !important;
-    box-shadow: 0 0 10px mediumseagreen;
+  outline: none !important;
+  box-shadow: 0 0 10px mediumseagreen;
 }
 
 textarea:hover {
-    -webkit-box-shadow: var(--green-shadow);
-    -moz-box-shadow: var(--green-shadow);
-    box-shadow: var(--green-shadow);
+  -webkit-box-shadow: var(--green-shadow);
+  -moz-box-shadow: var(--green-shadow);
+  box-shadow: var(--green-shadow);
 }

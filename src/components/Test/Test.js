@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import styles from "./testpage.module.css";
-import Stats from "../../components/Stats/Stats";
-import Timer from "../../components/Timer/Timer";
+import styles from "./test.module.css";
+import Stats from "../Stats/Stats";
+import Timer from "../Timer/Timer";
 
-const TestPage = ({ initQuestions, startRecorder, stopRecorder }) => {
+const Test = ({ initQuestions, startRecorder, stopRecorder }) => {
   const [questions, setQuestions] = useState(initQuestions);
   const [timerReset, setTimerReset] = useState(false);
   const [takenAnswer, setTakenAnswer] = useState(false);
@@ -89,4 +89,4 @@ const TestPage = ({ initQuestions, startRecorder, stopRecorder }) => {
   );
 };
 
-export default TestPage;
+export default Test;
