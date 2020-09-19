@@ -7,10 +7,6 @@
   flex-direction: column;
   text-align: center;
   justify-content: center;
-
-  max-width: 720px;
-  height: 100%;
-  padding-top: 10%;
 }
 
 .time {
@@ -42,7 +38,8 @@
 }
 
 .buttonBlock {
-  margin: auto;
+  position: relative;
+  bottom: 0;
 }
 
 .green:hover {
