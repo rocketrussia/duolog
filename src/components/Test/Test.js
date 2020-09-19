@@ -5,7 +5,7 @@ import Timer from "../Timer/Timer";
 import styles from "./test.module.css";
 import { cn } from "../../utils/utils";
 
-const Test = ({ initQuestions, startRecorder, stopRecorder }) => {
+const Test = ({ initQuestions, startRecorder, stopRecorder, withMicro, select }) => {
   const [questions, setQuestions] = useState(initQuestions);
   const [timerReset, setTimerReset] = useState(false);
   const [takenAnswer, setTakenAnswer] = useState(false);
@@ -64,7 +64,13 @@ const Test = ({ initQuestions, startRecorder, stopRecorder }) => {
       stopRecorder();
       stopStatus.current = true;
     }
-    return <Stats initQuestions={initQuestions} wrong={wrong} right={right} />;
+    return <Stats
+      initQuestions={initQuestions}
+      wrong={wrong}
+      right={right}
+      select={select}
+      withMicro={withMicro}
+    />;
   }
 
   return (

@@ -3,20 +3,21 @@ export const cn = (...args) => {
 };
 
 export function downloadFile(file, testName) {
-  const date = () => {
-    const now = new Date();
-    return `${dateWithZero(now.getDate())}.${dateWithZero(
-      now.getMonth()
-    )}.${now.getFullYear()} ${dateWithZero(now.getHours())}-${dateWithZero(
-      now.getMinutes()
-    )}`;
-  };
   const a = document.createElement("a");
   a.href = URL.createObjectURL(file);
-  // TODO: Bug with old name of test
-  a.download = `${testName} ${date()}.wav`;
-  a.click();
+  localStorage.setItem('audio', URL.createObjectURL(file));
+  a.download = `${testName} ${getNowDate()}.wav`;
+  a.click(); //TODO: delete downloadFile method or hide
 }
+
+export function getNowDate() {
+  const now = new Date();
+  return `${dateWithZero(now.getDate())}.${dateWithZero(
+    now.getMonth()
+  )}.${now.getFullYear()} ${dateWithZero(now.getHours())}:${dateWithZero(
+    now.getMinutes()
+  )}`;
+};
 
 function dateWithZero(num) {
   if (num < 10) {

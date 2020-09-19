@@ -13,18 +13,9 @@
   margin-bottom: 80px;
 }
 
-.download {
-  margin-bottom: 20px;
-}
-
-.download:hover {
-  background-color: #00cec9;
-  border: 1px solid #00cec9;
-}
-
 .button {
-  margin-top: 40px;
-  padding: 30px 100px;
+  margin-top: 20px;
+  padding: 30px 60px;
   font-size: 18px;
   background: transparent;
   border: 1px solid #777;
@@ -35,4 +26,28 @@
   cursor: pointer;
   color: white;
   background-color: mediumseagreen;
+}
+
+.a {
+  display: inline-block;
+  margin-right: 20px;
+
+  color: inherit;
+  text-decoration: none;
+  text-align: center;
+
+  margin-top: 20px;
+  padding: 30px 60px;
+  font-size: 18px;
+  background: transparent;
+  border: 1px solid #777;
+  border-radius: 4px;
+
+  min-width: 220px;
+}
+
+.a:hover {
+  color: white;
+  background-color: #00cec9;
+  border: 1px solid #00cec9;
 }

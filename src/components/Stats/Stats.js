@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import TestSelect from "../TestSelect/TestSelect";
 import styles from "./stats.module.css";
+import {cn, getNowDate} from "../../utils/utils"
 
-const Stats = ({ initQuestions, wrong, right, voiceUrl }) => {
+const Stats = ({ initQuestions, wrong, right, withMicro, select }) => {
   const [restart, setRestart] = useState(false);
+  const url = localStorage.getItem('audio')
   return (
     <>
       {!restart && (
@@ -22,18 +24,18 @@ const Stats = ({ initQuestions, wrong, right, voiceUrl }) => {
               </li>
             ))}
           </ol>
-          {voiceUrl && (
-            <button
-              className={styles.download}
-              href={voiceUrl}
-              download="duolog-mic.wav"
+          {withMicro && (
+            <a
+              className={styles.a}
+              href={url}
+              download={`${select} ${getNowDate()}.wav`}
             >
               Скачать запись
-            </button>
+            </a>
           )}
-          <button className={styles.button} onClick={() => setRestart(true)}>
+          <span className={styles.button} onClick={() => setRestart(true)}>
             Вернуться к выбору тестов
-          </button>
+          </span>
         </div>
       )}
       {restart && <TestSelect />}

@@ -120,6 +120,8 @@ const TestSelect = () => {
           initQuestions={tests[select]}
           startRecorder={startRecorder}
           stopRecorder={stopRecorder}
+          withMicro={withMicro}
+          select={select}
         />
       )}
     </>
