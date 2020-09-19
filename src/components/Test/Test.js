@@ -3,7 +3,7 @@ import Stats from "../Stats/Stats";
 import Timer from "../Timer/Timer";
 
 import styles from "./test.module.css";
-import {cn} from '../../utils/utils';
+import { cn } from "../../utils/utils";
 
 const Test = ({ initQuestions, startRecorder, stopRecorder }) => {
   const [questions, setQuestions] = useState(initQuestions);
@@ -78,10 +78,16 @@ const Test = ({ initQuestions, startRecorder, stopRecorder }) => {
       />
       <p className={styles.question}>{questions[randNum.current]}</p>
       <span className={styles.buttonBlock}>
-        <button className={cn(styles.button, styles.marginRight, styles.red)} onClick={handleWrong}>
+        <button
+          className={cn(styles.button, styles.marginRight, styles.red)}
+          onClick={handleWrong}
+        >
           Не знаю
         </button>
-        <button className={cn(styles.button, styles.green)} onClick={handleRight}>
+        <button
+          className={cn(styles.button, styles.green)}
+          onClick={handleRight}
+        >
           Ответил
         </button>
       </span>

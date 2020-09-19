@@ -92,7 +92,7 @@ textarea:hover {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-  monospace;
+    monospace;
 }
 
 @media screen and (max-width: 1600px) {

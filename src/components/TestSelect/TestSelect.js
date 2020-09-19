@@ -32,7 +32,7 @@ const TestSelect = () => {
             const voiceBlob = new Blob(voice.current, {
               type: "audio/mp3",
             });
-            downloadFile(voiceBlob);
+            downloadFile(voiceBlob, select);
           });
         })
         .catch((e) => {
