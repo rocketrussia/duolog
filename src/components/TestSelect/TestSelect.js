@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./test-select.module.css";
-import { downloadFile } from "../../utils/utils";
+import { createFile } from "../../utils/utils";
 import tests from "../../services/tests";
 
 import Select from "../Select/Select";
@@ -32,7 +32,7 @@ const TestSelect = () => {
             const voiceBlob = new Blob(voice.current, {
               type: "audio/mp3",
             });
-            downloadFile(voiceBlob, select);
+            createFile(voiceBlob);
           });
         })
         .catch((e) => {
@@ -71,6 +71,7 @@ const TestSelect = () => {
   };
 
   const handleSwitch = () => {
+    localStorage.clear();
     withMicro ? setWithMicro(false) : setWithMicro(true);
   };
 

@@ -1,11 +1,30 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import TestSelect from "../TestSelect/TestSelect";
 import styles from "./stats.module.css";
-import {cn, getNowDate} from "../../utils/utils"
+import anim from "../../css/animations.module.css"
+import {getNowDate} from "../../utils/utils"
 
 const Stats = ({ initQuestions, wrong, right, withMicro, select }) => {
   const [restart, setRestart] = useState(false);
-  const url = localStorage.getItem('audio')
+  const [url, setUrl] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  function response(getData) {
+    const data = getData()
+    if(data !== null) {
+      setLoading(false)
+      return setUrl(data)
+    } else {
+      setTimeout(() => response(getData), 3000)
+    }
+  }
+
+  function getData() {
+    return localStorage.getItem('audio')
+  }
+
+  useEffect(() => response(getData))
+
   return (
     <>
       {!restart && (
@@ -24,7 +43,13 @@ const Stats = ({ initQuestions, wrong, right, withMicro, select }) => {
               </li>
             ))}
           </ol>
-          {withMicro && (
+          {withMicro && loading && (
+            <>
+              <div className={anim.loader}></div>
+              <span className={styles.marginRight}>Сохраняем запись...</span>
+            </>
+          )}
+          {withMicro && !loading && (
             <a
               className={styles.a}
               href={url}
@@ -33,9 +58,12 @@ const Stats = ({ initQuestions, wrong, right, withMicro, select }) => {
               Скачать запись
             </a>
           )}
-          <span className={styles.button} onClick={() => setRestart(true)}>
+          <button className={styles.button} onClick={() => {
+              setRestart(true)}
+            }
+          >
             Вернуться к выбору тестов
-          </span>
+          </button>
         </div>
       )}
       {restart && <TestSelect />}

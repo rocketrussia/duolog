@@ -2,12 +2,8 @@ export const cn = (...args) => {
   return args.reduce((acc, item) => acc + ` ${item}`);
 };
 
-export function downloadFile(file, testName) {
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(file);
+export function createFile(file) {
   localStorage.setItem('audio', URL.createObjectURL(file));
-  a.download = `${testName} ${getNowDate()}.wav`;
-  a.click(); //TODO: delete downloadFile method or hide
 }
 
 export function getNowDate() {
