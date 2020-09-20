@@ -2,8 +2,9 @@ export const cn = (...args) => {
   return args.reduce((acc, item) => acc + ` ${item}`);
 };
 
-export function createFile(file) {
+export function createFileUrl(file) {
   localStorage.setItem('audio', URL.createObjectURL(file));
+  console.log('stop');
 }
 
 export function getNowDate() {

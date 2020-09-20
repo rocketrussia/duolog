@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./test-select.module.css";
-import { createFile } from "../../utils/utils";
+import { createFileUrl } from "../../utils/utils";
 import tests from "../../services/tests";
 
 import Select from "../Select/Select";
@@ -30,9 +30,9 @@ const TestSelect = () => {
           });
           recorder.current.addEventListener("stop", () => {
             const voiceBlob = new Blob(voice.current, {
-              type: "audio/mp3",
+              type: "audio/wav",
             });
-            createFile(voiceBlob);
+            createFileUrl(voiceBlob);
           });
         })
         .catch((e) => {

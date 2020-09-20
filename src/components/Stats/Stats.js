@@ -4,26 +4,37 @@ import styles from "./stats.module.css";
 import anim from "../../css/animations.module.css"
 import {getNowDate} from "../../utils/utils"
 
-const Stats = ({ initQuestions, wrong, right, withMicro, select }) => {
-  const [restart, setRestart] = useState(false);
-  const [url, setUrl] = useState(null)
-  const [loading, setLoading] = useState(true)
+const Stats = ({ initQuestions, wrong, right,
+                 withMicro, select, stopRecorder }) => {
 
-  function response(getData) {
-    const data = getData()
-    if(data !== null) {
-      setLoading(false)
-      return setUrl(data)
-    } else {
-      setTimeout(() => response(getData), 3000)
-    }
-  }
+  const [restart, setRestart] = useState(false)
+  const [url, setUrl] = useState(null)
+  const [loading, setLoading] = useState(false)
+
+  // function response(getData) {
+  //   const data = getData()
+
+  //   if(data !== null) {
+  //     setLoading(false)
+  //     return setUrl(data)
+  //   } else {
+  //     setTimeout(() => response(getData), 3000)
+  //   }
+  // }
 
   function getData() {
     return localStorage.getItem('audio')
   }
 
-  useEffect(() => response(getData))
+  // useEffect(() => response(getData))
+
+  useEffect(() => {
+    stopRecorder()
+
+    setTimeout(() => {
+      setUrl(getData())
+    }, 0)
+  }, [])
 
   return (
     <>
