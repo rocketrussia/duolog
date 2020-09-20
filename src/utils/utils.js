@@ -3,8 +3,7 @@ export const cn = (...args) => {
 };
 
 export function createFileUrl(file) {
-  localStorage.setItem('audio', URL.createObjectURL(file));
-  console.log('stop');
+  localStorage.setItem("audio", URL.createObjectURL(file));
 }
 
 export function getNowDate() {
@@ -14,7 +13,7 @@ export function getNowDate() {
   )}.${now.getFullYear()} ${dateWithZero(now.getHours())}:${dateWithZero(
     now.getMinutes()
   )}`;
-};
+}
 
 function dateWithZero(num) {
   if (num < 10) {

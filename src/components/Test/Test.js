@@ -5,16 +5,18 @@ import Timer from "../Timer/Timer";
 import styles from "./test.module.css";
 import { cn } from "../../utils/utils";
 
-const Test = ({ initQuestions, startRecorder, stopRecorder,
-                withMicro, select }) => {
-
+const Test = ({
+  initQuestions,
+  startRecorder,
+  stopRecorder,
+  withMicro,
+  select,
+}) => {
   const [questions, setQuestions] = useState(initQuestions);
   const [timerReset, setTimerReset] = useState(false);
   const [takenAnswer, setTakenAnswer] = useState(false);
   const [wrong, setWrong] = useState([]);
   const [right, setRight] = useState([]);
-
-  // const stopStatus = useRef(false);
 
   const randNum = useRef(Math.floor(questions.length * Math.random()));
   const prevLength = useRef(questions.length);
@@ -58,22 +60,19 @@ const Test = ({ initQuestions, startRecorder, stopRecorder,
 
   useEffect(() => {
     startRecorder();
-    // stopStatus.current = false;
   }, []);
 
   if (questions.length === 0) {
-    // if (!stopStatus.current) {
-    //   stopRecorder();
-    //   stopStatus.current = true;
-    // }
-    return <Stats
-      initQuestions={initQuestions}
-      wrong={wrong}
-      right={right}
-      select={select}
-      withMicro={withMicro}
-      stopRecorder={stopRecorder}
-    />;
+    return (
+      <Stats
+        initQuestions={initQuestions}
+        wrong={wrong}
+        right={right}
+        select={select}
+        withMicro={withMicro}
+        stopRecorder={stopRecorder}
+      />
+    );
   }
 
   return (

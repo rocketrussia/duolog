@@ -106,7 +106,7 @@
 
 .loader {
   display: inline-block;
-  border: 8px solid #3CB37150; /* Light grey */
+  border: 8px solid #3cb37150; /* Light grey */
   border-top: 8px solid #3cb371;
   border-radius: 50%;
   width: 32px;
@@ -119,6 +119,10 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

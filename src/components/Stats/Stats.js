@@ -1,40 +1,30 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import TestSelect from "../TestSelect/TestSelect";
 import styles from "./stats.module.css";
-import anim from "../../css/animations.module.css"
-import {getNowDate} from "../../utils/utils"
+import { getNowDate } from "../../utils/utils";
 
-const Stats = ({ initQuestions, wrong, right,
-                 withMicro, select, stopRecorder }) => {
+const Stats = ({
+  initQuestions,
+  wrong,
+  right,
+  withMicro,
+  select,
+  stopRecorder,
+}) => {
+  const [restart, setRestart] = useState(false);
+  const [url, setUrl] = useState(null);
 
-  const [restart, setRestart] = useState(false)
-  const [url, setUrl] = useState(null)
-  const [loading, setLoading] = useState(false)
-
-  // function response(getData) {
-  //   const data = getData()
-
-  //   if(data !== null) {
-  //     setLoading(false)
-  //     return setUrl(data)
-  //   } else {
-  //     setTimeout(() => response(getData), 3000)
-  //   }
-  // }
-
-  function getData() {
-    return localStorage.getItem('audio')
+  function getUrl() {
+    return localStorage.getItem("audio");
   }
 
-  // useEffect(() => response(getData))
-
   useEffect(() => {
-    stopRecorder()
+    stopRecorder();
 
     setTimeout(() => {
-      setUrl(getData())
-    }, 0)
-  }, [])
+      setUrl(getUrl());
+    }, 0);
+  }, []);
 
   return (
     <>
@@ -54,13 +44,7 @@ const Stats = ({ initQuestions, wrong, right,
               </li>
             ))}
           </ol>
-          {withMicro && loading && (
-            <>
-              <div className={anim.loader}></div>
-              <span className={styles.marginRight}>Сохраняем запись...</span>
-            </>
-          )}
-          {withMicro && !loading && (
+          {withMicro && (
             <a
               className={styles.a}
               href={url}
@@ -69,9 +53,11 @@ const Stats = ({ initQuestions, wrong, right,
               Скачать запись
             </a>
           )}
-          <button className={styles.button} onClick={() => {
-              setRestart(true)}
-            }
+          <button
+            className={styles.button}
+            onClick={() => {
+              setRestart(true);
+            }}
           >
             Вернуться к выбору тестов
           </button>
