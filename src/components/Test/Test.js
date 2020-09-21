@@ -5,7 +5,6 @@ import Timer from "../Timer/Timer";
 import styles from "./test.module.css";
 import {cn, synthQuestion} from "../../utils/utils";
 
-
 const Test = ({
   initQuestions,
   startRecorder,
@@ -28,6 +27,8 @@ const Test = ({
     prevLength.current = questions.length;
   }
 
+  const question = questions[randNum.current];
+
   function getNewQuestions() {
     return questions.filter((_, index) => index !== randNum.current);
   }
@@ -41,31 +42,33 @@ const Test = ({
   }
 
   const handleRight = () => {
-    setRight(right.concat(questions[randNum.current]));
+    setRight(right.concat(question));
     setQuestions(getNewQuestions());
     setTakenAnswer(true);
   };
 
   const handleWrong = () => {
-    setWrong(wrong.concat(questions[randNum.current]));
+    setWrong(wrong.concat(question));
     setQuestions(getNewQuestions());
     setTakenAnswer(true);
   };
 
   useEffect(() => {
     if (timerReset) {
-      setWrong(wrong.concat(questions[randNum.current]));
+      setWrong(wrong.concat(question));
       setQuestions(getNewQuestions());
       setTimerReset(false);
     }
 
     if(withSynth === true) {
+      if(!question) return
+      console.log('render')
       setTimeout(
         () =>
-          synthQuestion(questions[randNum.current]),
+          synthQuestion(question),
         500)
     }
-  });
+  }, [question]);
 
   useEffect(() => {
     startRecorder();
@@ -93,7 +96,7 @@ const Test = ({
         updateTakenAnswer={updateTakenAnswer}
         takenAnswer={takenAnswer}
       />
-      <p className={styles.question}>{questions[randNum.current]}</p>
+      <p className={styles.question}>{question}</p>
       <span className={styles.buttonBlock}>
         <button
           className={cn(styles.button, styles.marginRight, styles.red)}
