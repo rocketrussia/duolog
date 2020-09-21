@@ -16,6 +16,8 @@ body {
 }
 
 .button {
+  margin-top: 30px;
+
   cursor: pointer;
   width: 100%;
   height: 70px;

@@ -4,7 +4,7 @@ import { cn } from "../../utils/utils";
 
 const Switch = ({ description, sub, handleSwitch }) => {
   return (
-    <div className={styles.margin}>
+    <div>
       <label className={styles.switch}>
         <input type="checkbox" onClick={handleSwitch} />
         <span className={cn(styles.slider, styles.round)}></span>
