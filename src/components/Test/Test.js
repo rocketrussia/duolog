@@ -98,7 +98,7 @@ const Test = ({
       <p className={styles.question}>{question}</p>
       <span className={styles.buttonBlock}>
         <button
-          className={cn(styles.button, styles.marginRight, styles.red)}
+          className={cn(styles.button, styles.marginButton, styles.red)}
           onClick={handleWrong}
         >
           Не знаю

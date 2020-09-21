@@ -85,3 +85,51 @@ span {
     max-width: 100%;
   }
 }
+
+@media screen and (max-width: 720px) {
+  img {
+    max-width: 240px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  #downloadIcon {
+    display: none;
+  }
+
+  .download {
+    background-color: transparent;
+
+    border-top: 1px solid #999;
+    border-radius: 0;
+
+  }
+
+  .download > img {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .download > span {
+    display: inline-block;
+
+    position: relative;
+    top: -12px;
+    left: 0;
+
+    margin-right: 10px;
+  }
+
+  .platforms {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 435px) {
+  .platforms {
+    margin-bottom: 20px;
+  }
+}

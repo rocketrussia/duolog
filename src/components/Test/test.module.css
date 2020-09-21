@@ -33,7 +33,7 @@
   cursor: pointer;
 }
 
-.marginRight {
+.marginButton {
   margin-right: 10px;
 }
 
@@ -70,5 +70,11 @@
 
   .question {
     font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .marginButton {
+    margin: 0 0 20px 0;
   }
 }

@@ -64,6 +64,12 @@ body {
 @media screen and (max-width: 720px) {
   .row {
     width: auto;
-    padding: 30px 40px;
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .right {
+    background-color: transparent;
   }
 }

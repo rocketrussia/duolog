@@ -41,7 +41,7 @@ const Prolog = () => {
         </div>
       </div>
       <div className={styles.download}>
-        <img src={download} alt="Упражняйся на любой платформе" />
+        <img id={styles.downloadIcon} src={download} alt="Упражняйся на любой платформе" />
         <span>Скоро будет доступно для скачивания на </span>
         <img
           src={platforms}

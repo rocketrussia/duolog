@@ -57,3 +57,9 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #999;
 }
+
+@media screen and (max-width: 520px) {
+  .button {
+    margin-top: 0;
+  }
+}
