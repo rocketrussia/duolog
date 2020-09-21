@@ -2,6 +2,14 @@ export const cn = (...args) => {
   return args.reduce((acc, item) => acc + ` ${item}`);
 };
 
+export function synthQuestion(text) {
+  const msg = new SpeechSynthesisUtterance();
+  msg.rate = 1;
+  msg.lang = 'ru';
+  msg.text = text
+  window.speechSynthesis.speak(msg);
+}
+
 export function createFileUrl(file) {
   localStorage.setItem("audio", URL.createObjectURL(file));
 }

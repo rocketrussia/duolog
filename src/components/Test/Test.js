@@ -3,13 +3,15 @@ import Stats from "../Stats/Stats";
 import Timer from "../Timer/Timer";
 
 import styles from "./test.module.css";
-import { cn } from "../../utils/utils";
+import {cn, synthQuestion} from "../../utils/utils";
+
 
 const Test = ({
   initQuestions,
   startRecorder,
   stopRecorder,
-  withMicro,
+  withSynth,
+  withMic,
   select,
 }) => {
   const [questions, setQuestions] = useState(initQuestions);
@@ -56,6 +58,13 @@ const Test = ({
       setQuestions(getNewQuestions());
       setTimerReset(false);
     }
+
+    if(withSynth === true) {
+      setTimeout(
+        () =>
+          synthQuestion(questions[randNum.current]),
+        500)
+    }
   });
 
   useEffect(() => {
@@ -69,7 +78,7 @@ const Test = ({
         wrong={wrong}
         right={right}
         select={select}
-        withMicro={withMicro}
+        withMic={withMic}
         stopRecorder={stopRecorder}
       />
     );

@@ -7,7 +7,7 @@ const Stats = ({
   initQuestions,
   wrong,
   right,
-  withMicro,
+  withMic,
   select,
   stopRecorder,
 }) => {
@@ -44,7 +44,7 @@ const Stats = ({
               </li>
             ))}
           </ol>
-          {withMicro && (
+          {withMic && (
             <a
               className={styles.a}
               href={url}

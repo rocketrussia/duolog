@@ -13,14 +13,15 @@ const TestSelect = () => {
   const [testOn, setTestOn] = useState(false);
   const [buttonOff, setButtonOff] = useState(true);
   const [userTest, setUserTest] = useState("");
-  const [withMicro, setWithMicro] = useState(false);
+  const [withSynth, setWithSynth] = useState(false)
+  const [withMic, setWithMic] = useState(false);
   const [error, setError] = useState(false);
 
   const recorder = useRef(null);
   const voice = useRef([]);
 
   useEffect(() => {
-    if (withMicro && !recorder.current) {
+    if (withMic && !recorder.current) {
       navigator.mediaDevices
         .getUserMedia({ audio: true })
         .then((stream) => {
@@ -39,16 +40,16 @@ const TestSelect = () => {
           setError(true);
         });
     }
-  }, [withMicro]);
+  }, [withMic]);
 
   const startRecorder = () => {
-    if (withMicro && recorder.current) {
+    if (withMic && recorder.current) {
       recorder.current.start();
     }
   };
 
   const stopRecorder = () => {
-    if (withMicro && recorder.current) {
+    if (withMic && recorder.current) {
       recorder.current.stop();
     }
   };
@@ -70,9 +71,21 @@ const TestSelect = () => {
     return buttonOff ? "Напишите хотя бы 3 вопроса для своего теста" : null;
   };
 
-  const handleSwitch = () => {
-    localStorage.clear();
-    withMicro ? setWithMicro(false) : setWithMicro(true);
+  const handleSynthQuestion = () => {
+    if ('speechSynthesis' in window) {
+      withSynth
+        ? setWithSynth(false)
+        : setWithSynth(true)
+    }else{
+      return <Alert
+        text={"Твой браузер не поддерживает синтез звука"}
+        handleError={handleError}
+      />
+    }
+  }
+
+  const handleMic = () => {
+    withMic ? setWithMic(false) : setWithMic(true);
   };
 
   const handleError = () => {
@@ -102,7 +115,16 @@ const TestSelect = () => {
           {error && (
             <Alert text={"Микрофон не подключен"} handleError={handleError} />
           )}
-          <Switch handleSwitch={handleSwitch} />
+          <Switch
+            description={'Озвучивание вопросов устройством'}
+            sub={'Должно быть доступно для пользователей Chrome'}
+            handleSwitch={handleSynthQuestion}
+          />
+          <Switch
+            description={'Запись с микрофона'}
+            sub={'Не забудь разрещить браузеру доступ к микрофону'}
+            handleSwitch={handleMic}
+          />
           <p>
             <button
               className={styles.button}
@@ -121,7 +143,8 @@ const TestSelect = () => {
           initQuestions={tests[select]}
           startRecorder={startRecorder}
           stopRecorder={stopRecorder}
-          withMicro={withMicro}
+          withSynth={withSynth}
+          withMic={withMic}
           select={select}
         />
       )}
