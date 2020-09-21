@@ -62,7 +62,6 @@ const Test = ({
 
     if(withSynth === true) {
       if(!question) return
-      console.log('render')
       setTimeout(
         () =>
           synthQuestion(question),
