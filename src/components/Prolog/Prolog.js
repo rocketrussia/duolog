@@ -8,14 +8,18 @@ import createTest from "../../assets/png/create-test.png";
 import download from "../../assets/png/download.png";
 import platforms from "../../assets/png/platforms.png";
 
+import {Trans, useTranslation} from 'react-i18next';
+
 const Prolog = () => {
+  const { t } = useTranslation();
   return (
     <>
       <img src={logo} alt="Logo" />
       <span className={styles.alpha}>Alpha version 0.2</span>
       <p className={styles.description}>
-        Приложение помогает<br></br>
-        подготовиться к интервью или экзамену
+        <Trans i18nKey={'description'}>
+          App is help<br></br>for train to job interview or exam
+        </Trans>
       </p>
       <div className={styles.row}>
         <div className={styles.column}>
