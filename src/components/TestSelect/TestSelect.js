@@ -67,7 +67,7 @@ const TestSelect = () => {
   };
 
   const buttonTitle = () => {
-    if (select === null) return "Выбирете тест";
+    if (select === null) return "Выбери тест";
     return buttonOff ? "Напишите хотя бы 3 вопроса для своего теста" : null;
   };
 
@@ -112,6 +112,7 @@ const TestSelect = () => {
             handleSelect={handleSelect}
             handleTextarea={handleTextarea}
           />
+          {/*TODO: Adapt to other errors, no one microphone not provided*/}
           {error && (
             <Alert text={"Микрофон не подключен"} handleError={handleError} />
           )}

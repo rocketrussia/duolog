@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import tests from "../../services/tests";
 
 import styles from "./select.module.css";
-import anim from "../../css/animations.module.css";
 
 const placeholder = `Напишите вопросы для прохождения интервью
 Каждый вопрос с новой строки`;
@@ -32,9 +31,9 @@ const Select = ({ select, userTest, handleSelect, handleTextarea }) => {
 
   return (
     <>
-      <label>Выбери готовый тест или создай свой</label>
+      <label className={styles.label}>Выбери готовый тест или создай свой</label>
       <p></p>
-      <ul>
+      <ul className={styles.ul}>
         {Object.keys(tests).map((key, index) => (
           <li
             className={selectedStyle(key, index)}
@@ -53,7 +52,7 @@ const Select = ({ select, userTest, handleSelect, handleTextarea }) => {
           rows="5"
           wrap="off"
           placeholder={placeholder}
-          className={anim.fadeIn}
+          className={styles.textarea}
           value={userTest}
           onChange={handleTextarea}
         ></textarea>
