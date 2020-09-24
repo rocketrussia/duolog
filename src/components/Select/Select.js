@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import tests from "../../services/tests";
 
 import styles from "./select.module.css";
-
-const placeholder = `Напишите вопросы для прохождения интервью
-Каждый вопрос с новой строки`;
+import {useTranslation} from 'react-i18next';
 
 const Select = ({ select, userTest, handleSelect, handleTextarea }) => {
+  const { t } = useTranslation();
   const initKey = Object.keys(tests)[0];
   const length = Object.keys(tests).length;
   const [selected, setSelected] = useState(initKey);
+
+  const placeholder = `${t('testSelect.userQuestions')}
+${t('testSelect.newLine')}`;
 
   function handleSelected(key) {
     handleSelect(key);
@@ -31,7 +33,7 @@ const Select = ({ select, userTest, handleSelect, handleTextarea }) => {
 
   return (
     <>
-      <label className={styles.label}>Выбери готовый тест или создай свой</label>
+      <label className={styles.label}>{t('testSelect.chooseTest')}</label>
       <p></p>
       <ul className={styles.ul}>
         {Object.keys(tests).map((key, index) => (
@@ -40,7 +42,7 @@ const Select = ({ select, userTest, handleSelect, handleTextarea }) => {
             onClick={() => handleSelected(key)}
             key={index}
           >
-            {key === "UserTest" ? "Создать свой тест" : key}
+            {key === "UserTest" ? t('testSelect.createTest') : key}
           </li>
         ))}
       </ul>

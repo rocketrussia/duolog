@@ -7,8 +7,10 @@ import Select from "../Select/Select";
 import Alert from "../Alert/Alert";
 import Switch from "../Switch/Switch";
 import Test from "../Test/Test";
+import {useTranslation} from 'react-i18next';
 
 const TestSelect = () => {
+  const { t } = useTranslation();
   const [select, setSelect] = useState(null);
   const [testOn, setTestOn] = useState(false);
   const [buttonOff, setButtonOff] = useState(true);
@@ -67,8 +69,8 @@ const TestSelect = () => {
   };
 
   const buttonTitle = () => {
-    if (select === null) return "Выбери тест";
-    return buttonOff ? "Напишите хотя бы 3 вопроса для своего теста" : null;
+    if (select === null) return t('buttons.chooseTest');
+    return buttonOff ? t('buttons.writeThreeQuestions') : null;
   };
 
   const handleSynthQuestion = () => {
@@ -78,7 +80,7 @@ const TestSelect = () => {
         : setWithSynth(true)
     }else{
       return <Alert
-        text={"Твой браузер не поддерживает синтез звука"}
+        text={t('errors.notSynthesis')}
         handleError={handleError}
       />
     }
@@ -112,18 +114,17 @@ const TestSelect = () => {
             handleSelect={handleSelect}
             handleTextarea={handleTextarea}
           />
-          {/*TODO: Adapt to other errors, no one microphone not provided*/}
           {error && (
-            <Alert text={"Микрофон не подключен"} handleError={handleError} />
+            <Alert text={t('errors.micNotConnected')} handleError={handleError} />
           )}
           <Switch
-            description={'Озвучивание вопросов устройством'}
-            sub={'Должно быть доступно для пользователей Chrome'}
+            description={t('testSelect.soundingDevice')}
+            sub={t('testSelect.chromeAvailable')}
             handleSwitch={handleSynthQuestion}
           />
           <Switch
-            description={'Запись с микрофона'}
-            sub={'Не забудь разрещить браузеру доступ к микрофону'}
+            description={t('testSelect.micRecording')}
+            sub={t('testSelect.dontForgetMicOn')}
             handleSwitch={handleMic}
           />
           <p>
@@ -134,7 +135,7 @@ const TestSelect = () => {
               disabled={buttonOff}
               onClick={() => displayTest()}
             >
-              Начать интервью
+              {t('buttons.startInterview')}
             </button>
           </p>
         </>

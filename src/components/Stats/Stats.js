@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TestSelect from "../TestSelect/TestSelect";
 import styles from "./stats.module.css";
 import { getNowDate } from "../../utils/utils";
+import {useTranslation} from 'react-i18next';
 
 const Stats = ({
   initQuestions,
@@ -11,6 +12,7 @@ const Stats = ({
   select,
   stopRecorder,
 }) => {
+  const { t } = useTranslation();
   const [restart, setRestart] = useState(false);
   const [url, setUrl] = useState(null);
 
@@ -30,12 +32,12 @@ const Stats = ({
     <>
       {!restart && (
         <div className="app">
-          <h2>Спасибо за уделенное время!</h2>
+          <h2>{t('stats.thanksForTime')}</h2>
           <p>
-            Ответил: {right.length} / {initQuestions.length}{" "}
+            {t('stats.answered')}: {right.length} / {initQuestions.length}{" "}
           </p>
           <p>
-            Не дал ответа: {wrong.length} / {initQuestions.length}:{" "}
+            {t('stats.notAnswered')}: {wrong.length} / {initQuestions.length}:{" "}
           </p>
           <ol>
             {wrong.map((noanswer, index) => (
@@ -50,7 +52,7 @@ const Stats = ({
               href={url}
               download={`${select} ${getNowDate()}.wav`}
             >
-              Скачать запись
+              {t('buttons.downloadRecording')}
             </a>
           )}
           <button
@@ -59,7 +61,7 @@ const Stats = ({
               setRestart(true);
             }}
           >
-            Вернуться к выбору тестов
+            {t('buttons.backToTests')}
           </button>
         </div>
       )}

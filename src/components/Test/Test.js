@@ -4,6 +4,7 @@ import Timer from "../Timer/Timer";
 
 import styles from "./test.module.css";
 import {cn, synthQuestion} from "../../utils/utils";
+import {useTranslation} from 'react-i18next';
 
 const Test = ({
   initQuestions,
@@ -13,6 +14,7 @@ const Test = ({
   withMic,
   select,
 }) => {
+  const { t } = useTranslation();
   const [questions, setQuestions] = useState(initQuestions);
   const [timerReset, setTimerReset] = useState(false);
   const [takenAnswer, setTakenAnswer] = useState(false);
@@ -101,13 +103,13 @@ const Test = ({
           className={cn(styles.button, styles.marginButton, styles.red)}
           onClick={handleWrong}
         >
-          Не знаю
+          {t('buttons.dontKnow')}
         </button>
         <button
           className={cn(styles.button, styles.green)}
           onClick={handleRight}
         >
-          Ответил
+          {t('buttons.answered')}
         </button>
       </span>
     </div>
