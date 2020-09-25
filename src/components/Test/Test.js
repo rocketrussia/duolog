@@ -69,7 +69,7 @@ const Test = ({
           synthQuestion(question),
         500)
     }
-  }, [question]);
+  }, [question, timerReset]);
 
   useEffect(() => {
     startRecorder();
