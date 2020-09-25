@@ -9,7 +9,7 @@ import Switch from "../Switch/Switch";
 import Test from "../Test/Test";
 import {useTranslation} from 'react-i18next';
 
-const TestSelect = () => {
+const TestSelect = ({lang}) => {
   const { t } = useTranslation();
   const [select, setSelect] = useState(null);
   const [testOn, setTestOn] = useState(false);

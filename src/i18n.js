@@ -21,7 +21,7 @@ i18n
   .init({
     lng: 'en',
     fallbackLng: 'en',
-    debug: true,
+    debug: false,
     whitelist: ['en', 'ru'],
 
     interpolation: {

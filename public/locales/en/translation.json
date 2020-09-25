@@ -27,7 +27,7 @@
   },
   "errors": {
     "micNotConnected": "Microphone not connected",
-    "notSynthesis": "Your browser does not support sound synthesis"
+    "notSynthesis": "Your browser does not support audio playback"
   },
   "buttons": {
     "startInterview": "Start interview",
@@ -36,7 +36,7 @@
     "backToAnswers": "Back to answers",
     "backToTests": "Back to tests",
     "downloadRecording": "Download recording",
-    "chooseTest": "Choose test",
+    "chooseTest": "Choose a test",
     "writeThreeQuestions": "Write at least 3 questions for your test"
   },
   "stats": {
