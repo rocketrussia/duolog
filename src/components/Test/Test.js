@@ -13,6 +13,7 @@ const Test = ({
   withSynth,
   withMic,
   select,
+  lang
 }) => {
   const { t } = useTranslation();
   const [questions, setQuestions] = useState(initQuestions);
@@ -66,7 +67,7 @@ const Test = ({
       if(!question) return
       setTimeout(
         () =>
-          synthQuestion(question),
+          synthQuestion(lang, question),
         500)
     }
   }, [question, timerReset]);

@@ -2,10 +2,10 @@ export const cn = (...args) => {
   return args.reduce((acc, item) => acc + ` ${item}`);
 };
 
-export function synthQuestion(text) {
+export function synthQuestion(lang, text) {
   const msg = new SpeechSynthesisUtterance();
   msg.rate = 1;
-  msg.lang = 'ru';
+  msg.lang = lang;
   msg.text = text
   window.speechSynthesis.speak(msg);
 }

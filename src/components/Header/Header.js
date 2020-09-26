@@ -21,7 +21,6 @@ const Header = ({ lang, changeLang }) => {
         <a
           href="#"
           className={styles.dropdownBtn}
-
         >
           <img src={dropdown}/>
           {lang === 'en' ? t(`languages.en`) : t(`languages.ru`)}

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import tests from "../../services/tests";
 
 import styles from "./select.module.css";
 import {useTranslation} from 'react-i18next';
 
-const Select = ({ select, userTest, handleSelect, handleTextarea }) => {
+const Select = ({ tests, select, userTest, handleSelect, handleTextarea }) => {
   const { t } = useTranslation();
   const initKey = Object.keys(tests)[0];
   const length = Object.keys(tests).length;

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./test-select.module.css";
 import { createFileUrl } from "../../utils/utils";
-import tests from "../../services/tests";
+import getTests from '../../services/tests';
 
 import Select from "../Select/Select";
 import Alert from "../Alert/Alert";
@@ -13,6 +13,7 @@ const TestSelect = ({lang}) => {
   const { t } = useTranslation();
   const [select, setSelect] = useState(null);
   const [testOn, setTestOn] = useState(false);
+  const [tests, setTests] = useState(getTests(lang))
   const [buttonOff, setButtonOff] = useState(true);
   const [userTest, setUserTest] = useState("");
   const [withSynth, setWithSynth] = useState(false)
@@ -95,6 +96,10 @@ const TestSelect = ({lang}) => {
   };
 
   useEffect(() => {
+    setTests(getTests(lang))
+  }, [lang, tests])
+
+  useEffect(() => {
     if (select !== null) {
       setButtonOff(false);
     }
@@ -109,6 +114,7 @@ const TestSelect = ({lang}) => {
       {!testOn && (
         <>
           <Select
+            tests={tests}
             select={select}
             userTest={userTest}
             handleSelect={handleSelect}
@@ -148,6 +154,7 @@ const TestSelect = ({lang}) => {
           withSynth={withSynth}
           withMic={withMic}
           select={select}
+          lang={{lang}}
         />
       )}
     </>
