@@ -1,27 +1,25 @@
-.margin {
-  margin: 30px 0 -5px 0;
-}
+
 
 .description {
-  position: relative;
-  bottom: 3px;
-  margin-left: 10px;
+  margin-left: 60px;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 .sub {
   color: #777;
-  font-size: 12px;
+  font-size: 14px;
   margin-left: 7px;
 
   position: relative;
   left: 59px;
-  bottom: 10px;
+  bottom: 3px;
 }
 
 /* The switch - the box around the slider */
 .switch {
   position: relative;
-  display: inline-block;
+  display: block;
   width: 48px;
   height: 28px;
 }
@@ -41,9 +39,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  background-color: #cccccc;
+  height: 28px;
 }
 
 .slider:before {
@@ -58,23 +57,19 @@
   transition: 0.4s;
 }
 
-input:checked + .slider {
-  background-color: mediumseagreen;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px mediumseagreen;
-}
-
 input:checked + .slider:before {
   -webkit-transform: translateX(20px);
   -ms-transform: translateX(20px);
   transform: translateX(20px);
 }
 
+input:checked + .slider {
+  background-color: mediumseagreen;
+}
+
 /* Rounded sliders */
 .slider.round {
-  border-radius: 50px;
+  border-radius: 34px;
 }
 
 .slider.round:before {
@@ -83,6 +78,20 @@ input:checked + .slider:before {
 
 @media screen and (max-width: 1024px) {
   .sub {
-    font-size: 10px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .description {
+    display:inline-block;
+
+    position: relative;
+    top: -50px;
+  }
+
+  .sub {
+    left: 0;
+    bottom: 0;
   }
 }

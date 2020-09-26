@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import StartPage from "./pages/start/StartPage";
 
+import './i18n';
+
 const App = () => {
   return (
-    <div>
-      <StartPage />
-    </div>
+    <StartPage />
   );
 };
 

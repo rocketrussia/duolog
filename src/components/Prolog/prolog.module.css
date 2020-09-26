@@ -1,0 +1,135 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.alpha {
+  font-size: 12px;
+  font-weight: normal;
+  color: grey;
+  vertical-align: 230%;
+}
+
+.description {
+  font-size: 32px;
+  font-weight: 300;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  /* .row items */
+  flex-grow: 1;
+  flex-basis: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.column > img {
+  margin: 40px 0 0 0;
+  align-self: self-end;
+}
+
+.column > img:hover {
+  animation: pop 0.5s ease-out;
+}
+
+span {
+  margin-top: 40px;
+  padding-right: 10px;
+  line-height: 25px;
+}
+
+.download {
+  background-color: #ffffff50;
+  border-radius: 50px;
+  margin-top: 60px;
+
+  max-width: 85%;
+  height: 70px;
+}
+
+.download > img {
+  position: relative;
+  top: 23%;
+  left: 25px;
+}
+
+.download > span {
+  position: relative;
+  top: 7%;
+  left: 40px;
+}
+
+.platforms {
+  margin-left: 18px;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .download {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  img {
+    max-width: 240px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  #downloadIcon {
+    display: none;
+  }
+
+  .download {
+    background-color: transparent;
+
+    border-top: 1px solid #999;
+    border-radius: 0;
+
+  }
+
+  .download > img {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .download > span {
+    display: inline-block;
+
+    position: relative;
+    top: -12px;
+    left: 0;
+
+    margin-right: 10px;
+  }
+
+  .platforms {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 435px) {
+  .platforms {
+    margin-bottom: 20px;
+  }
+}

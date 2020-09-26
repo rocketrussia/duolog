@@ -1,19 +1,19 @@
 import React from "react";
 import styles from "./switch.module.css";
-import {cn} from '../../utils/utils'
+import { cn } from "../../utils/utils";
 
-const Switch = ({handleSwitch}) => {
+const Switch = ({ description, sub, handleSwitch }) => {
   return (
-    <div className={styles.margin}>
+    <div>
       <label className={styles.switch}>
         <input type="checkbox" onClick={handleSwitch} />
         <span className={cn(styles.slider, styles.round)}></span>
       </label>
       <span className={styles.description}>
-        Запись с микрофона
+        {description}
         <span className={styles.sub}>
           <br />
-          (Не забудь разрещить браузеру доступ к микрофону)
+          {`(${sub})`}
         </span>
       </span>
     </div>

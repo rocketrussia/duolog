@@ -58,11 +58,83 @@ export const id3 = [
   "Какие виды сортировок знаете?",
 ];
 
-const tests = {
+export const id4 = [
+  "What is Hoisting?",
+  "What is Hoisting?",
+  "What is Scope?",
+  "What are Closures?",
+  `What's the value of «this» in JavaScript?`,
+  "What are Classes?",
+  "What does the «new» keyword do?",
+  "What is the prototype of an object?",
+  "What are Arrow functions?",
+  "What is Functional Programming and what are the features of JavaScript that makes it a candidate as a functional language?",
+  "What are Higher Order Functions?",
+  "Why are functions called First-class Objects?",
+  "What is ECMAScript?",
+  "What are the new features in ES6 or ECMAScript 2015?",
+  "What are the new features in ES7-ES10?",
+  "What is Event Propagation?",
+  "What's Event Bubbling?",
+  "What's Event Capturing?",
+  "What is «event.target»?",
+  "What are the ways to deal with Asynchronous Code in JavasScript?",
+  "What is a Callback function?",
+  "What are Promises?",
+  "What is async/await and How does it work?",
+];
+
+export const id5 = [
+  "What is React?",
+  "What are the features of React?",
+  "What are the limitations of React?",
+  "What is JSX?",
+  "What do you understand by virtual DOM? Explain its working.",
+  "What is Props?",
+  "What is a state in React and how is it used?",
+  "What do you understand by refs in React?",
+  "What is JEST?",
+  "When to use Class components, and when to use Functional?",
+  "What happens when you call setState?",
+  "Differentiate between states and props.",
+  "When to make asynchronous requests to the server in react?",
+  "What is the significance of keys in React?",
+  "What does component mounted?",
+  "Differentiate between stateful and stateless components",
+  "What is React fragments?",
+];
+
+export const id6 = [
+  "What is algorithms?",
+  "What types of algorithms do you know?",
+  "What is and what data structures do you know?",
+  "What is Big O?",
+  "What are the differences between stack and queue?",
+  "How does linked lists work?",
+  "What are trees? What types of trees do you know?",
+  "What can you tell us about graphs?",
+  "What are hash tables?",
+  "What is an Array? What types do you know?",
+  "What types of sorting do you know?",
+];
+
+const testsRu = {
   JavaScript: id1,
   React: id2,
-  Algorithms: id3,
+  Алгоритмы: id3,
   UserTest: [],
 };
 
-export default tests
+const testsEn = {
+  JavaScript: id4,
+  React: id5,
+  Algorithms: id6,
+  UserTest: [],
+};
+
+function getTests(lang) {
+  if(lang === 'en') return testsEn
+  else return testsRu
+}
+
+export default getTests;

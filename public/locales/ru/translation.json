@@ -1,0 +1,47 @@
+{
+  "languages": {
+    "ru": "Русский",
+    "en": "English"
+  },
+  "prolog": {
+    "description": "Приложение помогает<1></1>\nподготовиться к интервью или экзамену",
+    "practiceYourSkills": "Тренируй навыки<1></1> ответа на вопросы<1></1> вслух\nсамостоятельно",
+    "trainCommunicationSkills": "Тренируй навыки общения",
+    "recordDialogue": "Записывай диалог<1></1r>\nдля последующего<1></1> анализа ответов",
+    "analyzeAnswers": "Анализируй свои ответы",
+    "createOwnTests": "Создавай свои<1></1>\nсобственные тесты<1></1> для тренировок",
+    "createTests": "Создавай свои тесты",
+    "soonDownload": "Скоро будет доступно для скачивания на",
+    "practicePlatform": "Упражняйся на любой платформе",
+    "platforms": "Windows, Linux, iOS, Android"
+  },
+  "testSelect": {
+    "chooseTest": "Выбери готовый тест или создай свой",
+    "createTest": "Создать свой тест",
+    "soundingDevice": "Озвучивание вопросов устройством",
+    "chromeAvailable": "Доступно для пользователей Chrome",
+    "micRecording": "Запись с микрофона",
+    "dontForgetMicOn": "Не забудь разрешить браузеру доступ к микрофону",
+    "userQuestions": "Напиши собственные вопросы для прохождения интервью",
+    "newLine": "Каждый вопрос с новой строки"
+  },
+  "error": {
+    "micNotConnected": "Микрофон не подключен",
+    "notSynthesis": "Твой браузер не поддерживает синтез звука"
+  },
+  "buttons": {
+    "startInterview": "Начать интервью",
+    "dontKnow": "Не знаю",
+    "answered": "Ответил",
+    "backToAnswers": "Вернуться к выбору ответов",
+    "backToTests": "Вернуться к выбору тестов",
+    "downloadRecording": "Скачать запись",
+    "chooseTest": "Выбери тест",
+    "writeThreeQuestions": "Напишите хотя бы 3 вопроса для своего теста"
+  },
+  "stats": {
+    "thanksForTime": "Спасибо за уделенное время!",
+    "answered": "Ответил",
+    "notAnswered": "Не дал ответа"
+  }
+}

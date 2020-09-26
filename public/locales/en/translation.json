@@ -1,0 +1,47 @@
+{
+  "languages": {
+    "ru": "Русский",
+    "en": "English"
+  },
+  "prolog": {
+    "description": "The app helps to<1></1>\nprepare for an interview or exam",
+    "practiceYourSkills": "Practice your skills<1></1> in answering questions<1></1> out loud\nby yourself",
+    "trainCommunicationSkills": "Train your communication skills",
+    "recordDialogue": "Record the dialogue<1></1r>\nfor further<1></1>  analysis of your responses",
+    "analyzeAnswers": "Analyze your answers",
+    "createOwnTests": "Create your<1></1>\nown tests<1></1> for training",
+    "createTests": "Create your tests",
+    "soonDownload": "Coming soon to download at",
+    "practicePlatform": "Practice on any platform",
+    "platforms": "Windows, Linux, iOS, Android"
+  },
+  "testSelect": {
+    "chooseTest": "Choose a test from the list or create your own",
+    "createTest": "Create your own test",
+    "soundingDevice": "Sounding out questions by the device",
+    "chromeAvailable": "Available for Chrome users",
+    "micRecording": "Microphone recording",
+    "dontForgetMicOn": "Don't forget to allow the browser access to the microphone",
+    "userQuestions": "Create your own interview questions",
+    "newLine": "Each question on a new line"
+  },
+  "errors": {
+    "micNotConnected": "Microphone not connected",
+    "notSynthesis": "Your browser does not support audio playback"
+  },
+  "buttons": {
+    "startInterview": "Start interview",
+    "dontKnow": "I don't know",
+    "answered": "Answered",
+    "backToAnswers": "Back to answers",
+    "backToTests": "Back to tests",
+    "downloadRecording": "Download recording",
+    "chooseTest": "Choose a test",
+    "writeThreeQuestions": "Write at least 3 questions for your test"
+  },
+  "stats": {
+    "thanksForTime": "Thank you for your time!",
+    "answered": "Answered",
+    "notAnswered": "Not answered"
+  }
+}
