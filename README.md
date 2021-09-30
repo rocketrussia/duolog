@@ -3,7 +3,7 @@ Duolog based in [Create React App](https://github.com/facebook/create-react-app)
 This app help train user interview skills with HR, Teacher, Buyer, etc.
 Write questions and start interview. Give answer and get stats after interview for analysis and improve skills.
 
-Demo: [https://duolog.app](https://duolog.app)
+Demo: [https://rocketstars.ru/duolog/](https://rocketstars.ru/duolog/)
 
 ## For start this project
 
